@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="14.633488mm"
+   height="14.585534mm"
+   viewBox="0 0 14.633488 14.585534"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="1-boulder.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="9.4601286"
+     inkscape:cx="29.122226"
+     inkscape:cy="30.602121"
+     inkscape:window-width="1440"
+     inkscape:window-height="872"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4154"
+       id="linearGradient4160"
+       x1="93.761749"
+       y1="123.76546"
+       x2="98.135475"
+       y2="125.5423"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4154">
+      <stop
+         style="stop-color:#9d9d9d;stop-opacity:1;"
+         offset="0"
+         id="stop4156" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop4158" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4164"
+       id="linearGradient4170"
+       x1="100.32234"
+       y1="125.81564"
+       x2="96.768692"
+       y2="124.44886"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       id="linearGradient4164">
+      <stop
+         style="stop-color:#d1d1d1;stop-opacity:1;"
+         offset="0"
+         id="stop4166" />
+      <stop
+         style="stop-color:#d1d1d1;stop-opacity:0;"
+         offset="1"
+         id="stop4168" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4180"
+       id="linearGradient4186"
+       x1="81.763031"
+       y1="115.66328"
+       x2="92.974037"
+       y2="114.50352"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4180">
+      <stop
+         style="stop-color:#707070;stop-opacity:1;"
+         offset="0"
+         id="stop4182" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop4184" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4188"
+       id="linearGradient4198"
+       gradientUnits="userSpaceOnUse"
+       x1="91.0411"
+       y1="107.54497"
+       x2="65.333107"
+       y2="111.21754"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4188">
+      <stop
+         style="stop-color:#9e9e9e;stop-opacity:1;"
+         offset="0"
+         id="stop4190" />
+      <stop
+         style="stop-color:#9e9e9e;stop-opacity:0;"
+         offset="1"
+         id="stop4192" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4204"
+       id="linearGradient4210"
+       x1="105.92468"
+       y1="108.51144"
+       x2="115.97593"
+       y2="108.12485"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4204">
+      <stop
+         style="stop-color:#b9b9b9;stop-opacity:1;"
+         offset="0"
+         id="stop4206" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop4208" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4214"
+       id="linearGradient4220"
+       x1="112.30335"
+       y1="135.95908"
+       x2="107.47102"
+       y2="136.92554"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4214">
+      <stop
+         style="stop-color:#d1d1d1;stop-opacity:1"
+         offset="0"
+         id="stop4216" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop4218" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4222"
+       id="linearGradient4228"
+       x1="99.739296"
+       y1="143.88409"
+       x2="106.89114"
+       y2="145.23714"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4222">
+      <stop
+         style="stop-color:#bfbfbf;stop-opacity:1;"
+         offset="0"
+         id="stop4224" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop4226" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4188"
+       id="linearGradient1"
+       gradientUnits="userSpaceOnUse"
+       x1="91.0411"
+       y1="107.54497"
+       x2="65.333107"
+       y2="111.21754"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4188"
+       id="linearGradient2"
+       gradientUnits="userSpaceOnUse"
+       x1="91.0411"
+       y1="107.54497"
+       x2="65.333107"
+       y2="111.21754"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,101.71045,81.020663)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-119.85625,-107.15625)">
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4160);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 126.65859,111.26341 c -0.44667,0.10702 -0.92221,0.15535 -1.34396,0.33351 -0.50632,0.77365 -1.04763,1.53946 -1.46266,2.3657 0.0106,0.31838 0.24022,0.60313 0.31192,0.91456 0.23585,0.63477 0.42328,1.29108 0.65754,1.92315 0.74141,0.34008 1.4631,0.75691 2.22437,1.03588 0.77056,-0.19655 1.53487,-0.42939 2.29363,-0.66421 0.48686,-0.74845 1.02995,-1.46708 1.47114,-2.23992 -0.22557,-0.91728 -0.39517,-1.85816 -0.67268,-2.75716 -0.72762,-0.40631 -1.47373,-0.79155 -2.21731,-1.16447 -0.42067,0.0843 -0.84133,0.16864 -1.26199,0.25296 z"
+       id="path4108"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4162"
+       d="m 126.65859,111.26341 c -0.44667,0.10702 -0.92221,0.15535 -1.34396,0.33351 -0.50632,0.77365 -1.04763,1.53946 -1.46266,2.3657 0.0106,0.31838 0.24022,0.60313 0.31192,0.91456 0.23585,0.63477 0.42328,1.29108 0.65754,1.92315 0.74141,0.34008 1.4631,0.75691 2.22437,1.03588 0.77056,-0.19655 1.53487,-0.42939 2.29363,-0.66421 0.48686,-0.74845 1.02995,-1.46708 1.47114,-2.23992 -0.22557,-0.91728 -0.39517,-1.85816 -0.67268,-2.75716 -0.72762,-0.40631 -1.47373,-0.79155 -2.21731,-1.16447 -0.42067,0.0843 -0.84133,0.16864 -1.26199,0.25296 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4170);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 133.2144,109.82773 c -0.95205,0.72563 -1.89487,1.47757 -2.81602,2.23587 4e-5,0.5673 0.2203,1.12545 0.31734,1.68574 0.113,0.4166 0.16442,0.87186 0.31555,1.26453 1.05066,0.0295 2.10137,0.0605 3.15163,0.10228 0.0419,-0.29266 -0.10383,-0.63941 -0.12804,-0.95217 -0.26588,-1.443 -0.45997,-2.90538 -0.79891,-4.33145 -0.0115,-0.0101 -0.0285,-0.0131 -0.0416,-0.005 z"
+       id="path4212"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#707070;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 120.23135,113.82271 c -0.15867,0.0559 0.0493,0.27246 0.0466,0.37748 0.61527,1.6471 1.21319,3.31294 1.87958,4.93333 0.16314,0.0226 0.26009,-0.24206 0.39947,-0.31274 0.68766,-0.67602 1.40797,-1.33829 2.06233,-2.036 -0.30807,-0.89739 -0.55475,-1.82317 -0.96239,-2.68084 -1.12769,-0.0878 -2.27647,-0.15384 -3.40723,-0.28405 l -0.0184,0.003 z"
+       id="path4092"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4186);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 122.88252,108.69139 c -0.90925,1.61336 -1.79904,3.24424 -2.65541,4.88684 0.11758,0.12593 0.37622,0.0603 0.5464,0.10848 0.95277,0.071 1.91344,0.25332 2.86648,0.18688 0.48705,-0.79385 1.04125,-1.56094 1.46549,-2.38407 -0.64377,-0.94629 -1.38093,-1.83365 -2.09969,-2.72655 -0.033,-0.025 -0.0702,-0.11169 -0.12327,-0.0716 z"
+       id="path4094"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4196"
+       d="m 128.58761,107.44918 c -1.81807,0.31731 -3.6457,0.62561 -5.45072,0.99066 -0.009,0.21358 0.23207,0.3768 0.32377,0.56058 0.6084,0.78328 1.18719,1.60033 1.85397,2.33082 0.87098,-0.16398 1.75752,-0.29943 2.60877,-0.54832 0.16888,-0.14545 0.10385,-0.44985 0.19078,-0.64866 0.17798,-0.88387 0.37031,-1.76599 0.5243,-2.65399 -0.0258,0.0159 -0.0237,-0.0508 -0.0509,-0.0311 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient1);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4200"
+       d="m 128.58761,107.44918 c -1.81807,0.31731 -3.6457,0.62561 -5.45072,0.99066 -0.009,0.21358 0.23207,0.3768 0.32377,0.56058 0.6084,0.78328 1.18719,1.60033 1.85397,2.33082 0.87098,-0.16398 1.75752,-0.29943 2.60877,-0.54832 0.16888,-0.14545 0.10385,-0.44985 0.19078,-0.64866 0.17798,-0.88387 0.37031,-1.76599 0.5243,-2.65399 -0.0258,0.0159 -0.0237,-0.0508 -0.0509,-0.0311 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient2);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4198);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 128.58761,107.44918 c -1.81807,0.31731 -3.6457,0.62561 -5.45072,0.99066 -0.009,0.21358 0.23207,0.3768 0.32377,0.56058 0.6084,0.78328 1.18719,1.60033 1.85397,2.33082 0.87098,-0.16398 1.75752,-0.29943 2.60877,-0.54832 0.16888,-0.14545 0.10385,-0.44985 0.19078,-0.64866 0.17798,-0.88387 0.37031,-1.76599 0.5243,-2.65399 -0.0258,0.0159 -0.0237,-0.0508 -0.0509,-0.0311 z"
+       id="path4096"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4210);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 128.88579,107.49582 c -0.13852,0.1559 -0.10333,0.43957 -0.1799,0.6382 -0.17924,0.90035 -0.4048,1.79922 -0.53942,2.70401 0.18668,0.25562 0.54339,0.33797 0.80108,0.51285 0.40762,0.19515 0.80308,0.46244 1.22969,0.59511 0.94124,-0.71045 1.88451,-1.43277 2.77129,-2.21025 0.16828,-0.17769 -0.19318,-0.23631 -0.2866,-0.3139 -1.23662,-0.63598 -2.44439,-1.33522 -3.70852,-1.9133 -0.0284,-0.007 -0.058,-0.0175 -0.0876,-0.0127 z"
+       id="path4098"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 133.2441,109.80216 c -0.95656,0.74311 -1.9331,1.47745 -2.82923,2.29362 -0.14454,0.15164 0.0606,0.3763 0.0495,0.55257 0.19448,0.77868 0.33221,1.58457 0.56528,2.34591 1.04361,0.0813 2.09464,0.068 3.14154,0.0919 0.0499,-0.24576 -0.0847,-0.5432 -0.10182,-0.80806 -0.25771,-1.48503 -0.50346,-2.97233 -0.77578,-4.4547 -0.0161,0.0627 -0.0331,-0.0356 -0.0495,-0.0212 z"
+       id="path4100"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4220);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 130.85862,115.21613 c -0.42635,0.67832 -0.91664,1.33488 -1.29591,2.03218 0.69343,0.89085 1.44631,1.74432 2.20177,2.58192 0.1778,-0.12147 0.23894,-0.40162 0.37069,-0.58056 0.7079,-1.29729 1.4433,-2.59011 2.09817,-3.91342 -0.20165,-0.1074 -0.50015,-0.0319 -0.73345,-0.0735 -0.87882,-0.0228 -1.7673,-0.0799 -2.64127,-0.0466 z"
+       id="path4102"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#9e9e9e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 124.69848,116.97698 c -0.77768,0.79707 -1.62635,1.53216 -2.3445,2.38124 -0.0391,0.16549 0.27864,0.1494 0.36731,0.24182 1.35594,0.59333 2.70472,1.21557 4.07438,1.76917 0.15258,-0.11768 0.0482,-0.39266 0.0848,-0.56528 -0.004,-0.92933 0.0629,-1.87176 0.041,-2.79249 -0.74168,-0.33618 -1.46636,-0.75581 -2.22296,-1.03446 z"
+       id="path4106"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 122.05818,119.44967 2.66434,-2.61802 c 0,0 -0.88811,-2.94526 -1.07509,-2.85176 -0.18697,0.0935 -3.69268,-0.28051 -3.69268,-0.28051"
+       id="path3485"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 122.94629,108.36985 5.88961,-1.07526 4.53406,2.38427 0.9816,5.70353 -2.52412,4.62828 -4.76777,1.58951 -4.90801,-2.15051 -2.15017,-5.70354 z"
+       id="path3471"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 133.22973,109.67886 -2.99155,2.38426 0.70115,3.03877 3.45897,0.0935"
+       id="path3481"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 122.85281,108.36985 2.38388,3.08552 2.80458,-0.561 0.74788,-3.59978"
+       id="path3479"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 123.64743,114.02663 1.63601,-2.57126"
+       id="path3487"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 127.99452,110.94112 2.24366,1.16875"
+       id="path3489"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 130.89259,115.00839 -1.54252,2.33752"
+       id="path3491"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 124.76927,116.87841 2.24365,1.07525"
+       id="path3493"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 131.7807,120.01067 -2.38389,-2.75826 -2.38389,0.70125 -0.0467,3.60741"
+       id="path3483"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4228);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 129.32389,117.37409 c -0.73466,0.20731 -1.47284,0.42486 -2.20036,0.64724 -0.064,0.86365 -0.0369,1.75454 -0.0523,2.62856 0.0258,0.26173 -0.0484,0.57055 0.0537,0.80976 1.48291,-0.45008 2.96013,-0.95833 4.42756,-1.46549 0.0214,-0.16225 -0.22104,-0.28954 -0.29351,-0.43461 -0.62947,-0.73368 -1.24181,-1.49197 -1.91108,-2.18546 l -0.0156,-10e-4 z"
+       id="path4104"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Images\Kanto\Boulder.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+  </g>
+</svg>

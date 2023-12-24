@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="14.595019mm"
+   height="14.768736mm"
+   viewBox="0 0 14.595019 14.768736"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="7.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.80978535"
+     inkscape:cx="27.785141"
+     inkscape:cy="27.785141"
+     inkscape:window-width="1392"
+     inkscape:window-height="872"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4614"
+       id="linearGradient4612"
+       x1="556.10455"
+       y1="358.43958"
+       x2="567.50885"
+       y2="366.75116"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,-44.22407,50.177001)" />
+    <linearGradient
+       id="linearGradient4614"
+       inkscape:collect="always">
+      <stop
+         id="stop4616"
+         offset="0"
+         style="stop-color:#a1a4a2;stop-opacity:1" />
+      <stop
+         id="stop4618"
+         offset="1"
+         style="stop-color:#525252;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4604"
+       id="linearGradient4610"
+       x1="563.64301"
+       y1="367.91092"
+       x2="578.71991"
+       y2="374.28961"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,-44.22407,50.177001)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4604">
+      <stop
+         style="stop-color:#dd5eb9;stop-opacity:1"
+         offset="0"
+         id="stop4606" />
+      <stop
+         style="stop-color:#913c79;stop-opacity:1"
+         offset="1"
+         id="stop4608" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-97.631249,-141.28751)">
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4612);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       d="m 104.68391,155.78674 c -0.32053,-0.20934 -6.713953,-5.18556 -6.915851,-9.58766 -0.201901,-4.40209 6.442851,-6.43191 6.705941,-2.50231 0.12987,2.28655 -1.83893,1.73249 -1.65771,4.42005 0.18122,2.68756 4.30641,2.15029 4.18183,0.0217 -0.12459,-2.12857 -2.3749,-2.57831 -2.44432,-4.44694 1.52077,-4.91211 8.06595,-0.84851 7.50624,2.70917 -0.5597,3.55767 -5.51226,7.94499 -7.37613,9.386 z"
+       id="path5003"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="czczzczc"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path5021.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient4610);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       d="m 104.69002,154.81815 c 0,0 -6.385233,-5.48231 -6.193436,-8.6488 0.197069,-3.25355 3.760596,-5.10425 5.043986,-3.21215 1.28338,1.8921 -1.49832,2.04637 -1.23002,5.31454 0.2683,3.26818 5.95717,2.71679 5.14124,-0.5786 -0.81593,-3.2954 -3.07513,-3.05058 -1.55626,-4.91277 1.51887,-1.86218 5.56402,0.40964 5.5171,3.70386 -0.0469,3.29423 -6.72261,8.33392 -6.72261,8.33392 z"
+       id="path5021"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cszzzzzc"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+  </g>
+</svg>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="9.9520054mm"
+   height="15.551401mm"
+   viewBox="0 0 9.9520054 15.551401"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="2-cascade.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.64943182"
+     inkscape:cx="20.017498"
+     inkscape:cy="30.026247"
+     inkscape:window-width="720"
+     inkscape:window-height="480"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <filter
+       inkscape:collect="always"
+       id="filter4011"
+       x="-0.075144405"
+       y="-0.049936027"
+       width="1.1502888"
+       height="1.0998721">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.34866198"
+         id="feGaussianBlur4013" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-100.0125,-140.75833)">
+    <path
+       style="display:inline;fill:#47baff;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 103.79828,141.02283 c 0,0 -1.34507,2.95085 -2.24366,4.62829 -0.89363,1.66816 -3.878585,10.15822 3.03829,10.51881 5.45327,0.28428 6.49477,-7.52363 3.83291,-10.05132 -3.12422,-2.96675 -4.62754,-5.09578 -4.62754,-5.09578 z"
+       id="path4265"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssc"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\path4275.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#70fff0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       d="m 103.93907,141.25754 c 0,0.37401 -2.80126,10.28723 1.4056,10.98848 4.20686,0.70125 4.29948,-1.17409 4.29948,-1.17409 l -0.0165,-0.0248 c 0.0628,-0.12601 0.10208,-0.25845 0.0744,-0.41341 0.003,-1.17873 -0.03,-2.41063 -0.62012,-3.46439 -0.52352,-0.9623 -1.4527,-1.61022 -2.16628,-2.42259 -0.94069,-0.96194 -1.80959,-1.97927 -2.68717,-2.9931 z m 2.48874,3.91087 c 0.82073,0.44556 1.46667,1.16106 2.04225,1.88516 0.45607,0.626 0.99541,1.41503 0.75241,2.22415 -0.083,0.17974 -0.22077,0.31555 -0.38861,0.40515 l -2.48873,-4.28294 c 0.024,-0.0772 0.0506,-0.15812 0.0827,-0.23152 z"
+       id="path4235"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\path4275.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="display:inline;fill:#e2f8f6;fill-opacity:0.999602;stroke:none;filter:url(#filter4011)"
+       d="m 170.53783,111.84832 c 0,0 -2.65,7.06776 2.11999,13.42875 4.76998,6.36099 11.12997,2.8271 6.88998,-4.06396 -4.23999,-6.89106 -9.00997,-9.36479 -9.00997,-9.36479 z"
+       id="path4281"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\path4275.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       transform="matrix(0.26458333,0,0,0.26458333,61.341156,115.68391)" />
+    <ellipse
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#197fff;fill-opacity:1;stroke:none;stroke-width:0.264583;marker:none;enable-background:accumulate"
+       id="path4275"
+       transform="matrix(0.98611616,0.16605695,-0.16600593,0.98612475,0,0)"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\path4275.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       cx="127.39986"
+       cy="132.36284"
+       rx="0.9348622"
+       ry="1.5895029" />
+  </g>
+</svg>

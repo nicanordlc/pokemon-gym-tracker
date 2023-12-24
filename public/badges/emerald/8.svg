@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.601713mm"
+   height="14.52929mm"
+   viewBox="0 0 10.601713 14.52929"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="8.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.80978535"
+     inkscape:cx="20.37577"
+     inkscape:cy="27.785141"
+     inkscape:window-width="1392"
+     inkscape:window-height="872"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5038"
+       id="radialGradient5044"
+       cx="655.24237"
+       cy="388.33209"
+       fx="655.24237"
+       fy="388.33209"
+       r="10.59516"
+       gradientTransform="matrix(0.23451221,-0.48903625,0.30276884,0.14518966,-161.56256,418.70751)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5038">
+      <stop
+         style="stop-color:#4d6590;stop-opacity:1"
+         offset="0"
+         id="stop5040" />
+      <stop
+         style="stop-color:#a0b2d2;stop-opacity:1"
+         offset="1"
+         id="stop5042" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5072"
+       id="linearGradient5070"
+       x1="643.47815"
+       y1="376.34317"
+       x2="648.20966"
+       y2="378.56406"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,-64.079083,51.34787)" />
+    <linearGradient
+       id="linearGradient5072"
+       inkscape:collect="always">
+      <stop
+         id="stop5074"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1" />
+      <stop
+         id="stop5076"
+         offset="1"
+         style="stop-color:#a0b2d2;stop-opacity:0" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4636"
+       id="radialGradient5046"
+       cx="635.09283"
+       cy="386.24359"
+       fx="635.09283"
+       fy="386.24359"
+       r="9.4987688"
+       gradientTransform="matrix(0.17176437,-0.46104598,0.25001377,0.0931436,-101.54744,410.97197)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4636">
+      <stop
+         style="stop-color:#49628d;stop-opacity:1"
+         offset="0"
+         id="stop4638" />
+      <stop
+         style="stop-color:#a0b2d2;stop-opacity:1"
+         offset="1"
+         id="stop4640" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5072"
+       id="linearGradient5060"
+       x1="623.10394"
+       y1="374.41199"
+       x2="631.02191"
+       y2="378.37094"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,-64.079083,51.34787)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4636"
+       id="radialGradient5048"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.16123631,-0.30744572,0.24133627,0.12656522,-80.442875,300.97316)"
+       cx="641.10309"
+       cy="348.75845"
+       fx="641.10309"
+       fy="348.75845"
+       r="10.023557" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5072"
+       id="linearGradient5050"
+       x1="634.69122"
+       y1="351.14093"
+       x2="639.71234"
+       y2="353.74805"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,-64.079083,51.34787)" />
+    <filter
+       inkscape:collect="always"
+       id="filter5126"
+       x="-0.17562411"
+       width="1.3512482"
+       y="-0.47283414"
+       height="1.9456683">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.35006005"
+         id="feGaussianBlur5128" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter5122"
+       x="-0.19250144"
+       width="1.3850029"
+       y="-0.5182731"
+       height="2.0365462">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.38370052"
+         id="feGaussianBlur5124" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter5118"
+       x="-0.17889005"
+       width="1.3577801"
+       y="-0.48162705"
+       height="1.9632541">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.35656984"
+         id="feGaussianBlur5120" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-99.747921,-141.28749)">
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#radialGradient5044);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       d="m 107.72368,148.17252 c -1.63145,2.90032 -5.35513,7.43521 -0.26362,7.511 5.09151,0.0758 1.87905,-4.32321 0.26362,-7.511 z"
+       id="path5033"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       sodipodi:nodetypes="czc" />
+    <path
+       sodipodi:nodetypes="czc"
+       inkscape:export-ydpi="400"
+       inkscape:export-xdpi="400"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:connector-curvature="0"
+       id="path5068"
+       d="m 107.72368,148.17252 c -1.63145,2.90032 -5.35513,7.43521 -0.26362,7.511 5.09151,0.0758 1.87905,-4.32321 0.26362,-7.511 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5070);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#radialGradient5046);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       d="m 102.43371,148.08823 c -1.62434,2.93193 -4.70763,7.18779 -0.22501,7.22127 4.48262,0.0335 1.67584,-4.14066 0.22501,-7.22127 z"
+       id="path5031"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       sodipodi:nodetypes="czc" />
+    <path
+       sodipodi:nodetypes="czc"
+       inkscape:export-ydpi="400"
+       inkscape:export-xdpi="400"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:connector-curvature="0"
+       id="path5058"
+       d="m 102.43371,148.08823 c -1.62434,2.93193 -4.70763,7.18779 -0.22501,7.22127 4.48262,0.0335 1.67584,-4.14066 0.22501,-7.22127 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5060);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+    <path
+       sodipodi:nodetypes="czc"
+       inkscape:export-ydpi="400"
+       inkscape:export-xdpi="400"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:connector-curvature="0"
+       id="path5036"
+       d="m 105.33177,141.58993 c -1.57305,3.03949 -5.04467,7.45288 -0.26555,7.46199 4.77911,0.009 1.82791,-4.03341 0.26555,-7.46199 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#radialGradient5048);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5050);fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       d="m 105.33177,141.58993 c -1.57305,3.03949 -5.04467,7.45288 -0.26555,7.46199 4.77911,0.009 1.82791,-4.03341 0.26555,-7.46199 z"
+       id="path5029"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       sodipodi:nodetypes="czc" />
+    <ellipse
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.5;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;filter:url(#filter5126);enable-background:accumulate"
+       id="path4644"
+       transform="matrix(0.31512631,-0.06371039,0.08004638,0.39592795,-125.78366,43.791854)"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       cx="642.32269"
+       cy="366.02887"
+       rx="2.3918815"
+       ry="0.88841313" />
+    <ellipse
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.5;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.00904;marker:none;filter:url(#filter5122);enable-background:accumulate"
+       id="path4668"
+       transform="matrix(0.2773899,0,0,0.53879151,-69.159898,-42.826338)"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       cx="642.32269"
+       cy="366.02887"
+       rx="2.3918815"
+       ry="0.88841313" />
+    <ellipse
+       transform="matrix(0.33789482,-0.05220416,0.07728662,0.50024267,-142.27266,4.4735782)"
+       id="path4666"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:0.5;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.03077;marker:none;filter:url(#filter5118);enable-background:accumulate"
+       inkscape:export-filename="C:\Users\Ste\Documents\Creative\DTP\Shirts\Badges\Individual\path4704.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400"
+       cx="642.32269"
+       cy="366.02887"
+       rx="2.3918815"
+       ry="0.88841313" />
+  </g>
+</svg>
