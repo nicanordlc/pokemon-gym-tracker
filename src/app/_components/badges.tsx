@@ -1,36 +1,39 @@
 "use client";
 
 import classNames from "classnames";
+
 import { Badge } from "~/app/_components/badge";
-import { getBadgesUrl } from "~/utils/get-badges-url";
+import BadgeUsername from "~/app/_components/badge-username";
 
 type BadgesProps = {
-  red?: string[];
-  crystal?: string[];
-  emerald?: string[];
+  red?: number[];
+  crystal?: number[];
+  emerald?: number[];
 };
 
-export function Badges({
-  className,
-  username,
-  init,
-  ...badges
-}: BadgesProps & {
-  className?: string;
-  username?: string;
-  init?: boolean;
-}) {
+export function Badges(
+  props: BadgesProps & {
+    className?: string;
+    username?: string;
+    init?: boolean;
+  },
+) {
   let prepareVersionAndBadges: BadgesProps | [] = [];
-  const shouldUseProps = badges.red ?? badges.emerald ?? badges.crystal;
+  const shouldUseProps = props.red ?? props.emerald ?? props.crystal;
 
   if (shouldUseProps) {
-    prepareVersionAndBadges = badges;
+    prepareVersionAndBadges = {
+      red: props.red,
+      crystal: props.crystal,
+      emerald: props.emerald,
+    };
   } else {
-    if (init) {
+    if (props.init) {
+      const allGyms = [1, 2, 3, 4, 5, 6, 7, 8];
       const defaultBadges = {
-        red: getBadgesUrl("red"),
-        crystal: getBadgesUrl("crystal"),
-        emerald: getBadgesUrl("emerald"),
+        red: allGyms,
+        crystal: allGyms,
+        emerald: allGyms,
       };
 
       prepareVersionAndBadges = defaultBadges;
@@ -40,16 +43,21 @@ export function Badges({
   const versionAndBadges = Object.entries(prepareVersionAndBadges);
 
   return (
-    <div className={classNames("flex", className)}>
+    <div className={classNames("flex", props.className)}>
       <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 ">
-        {username && <p>{username}</p>}
+        {props.username && <BadgeUsername edit username={props.username} />}
         {versionAndBadges.map(([pokemonVersion, badges], i) => (
           <div
             className="grid grid-cols-4 justify-items-center gap-2 sm:grid-cols-8"
             key={i}
           >
-            {badges.map((badgeUrl, i) => (
-              <Badge key={i} url={badgeUrl} version={pokemonVersion} />
+            {badges.sort().map((badgeOrder, i) => (
+              <Badge
+                disable={Boolean(props.username)}
+                key={i}
+                order={badgeOrder}
+                version={pokemonVersion}
+              />
             ))}
           </div>
         ))}

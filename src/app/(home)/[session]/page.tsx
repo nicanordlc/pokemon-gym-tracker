@@ -11,7 +11,13 @@ export default async function Home() {
 
       <Badges init />
 
-      <Badges username={randomName} />
+      {/* @TODO: get user props from state */}
+      <Badges
+        username={randomName}
+        red={[1]}
+        emerald={[1]}
+        crystal={[2, 3, 1]}
+      />
     </div>
   );
 }
