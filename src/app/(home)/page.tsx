@@ -7,7 +7,7 @@ export default async function Home() {
     <div className="flex grow flex-col items-center justify-center gap-4 ">
       <Title className="text-center" />
 
-      <Badges />
+      <Badges init />
 
       <CreateSession />
     </div>

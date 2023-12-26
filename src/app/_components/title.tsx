@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-export function Title({ className }: { className: string }) {
+export function Title({ className }: { className?: string }) {
   return (
     <h1
       className={classNames(
