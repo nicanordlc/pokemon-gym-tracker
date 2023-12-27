@@ -3,7 +3,7 @@
 import classNames from "classnames";
 
 import { Badge } from "~/app/_components/badge";
-import BadgeUsername from "~/app/_components/badge-username";
+import BadgeTrainername from "~/app/_components/badge-trainername";
 
 type BadgesProps = {
   red?: number[];
@@ -14,7 +14,7 @@ type BadgesProps = {
 export function Badges(
   props: BadgesProps & {
     className?: string;
-    username?: string;
+    trainername?: string;
     init?: boolean;
   },
 ) {
@@ -45,7 +45,9 @@ export function Badges(
   return (
     <div className={classNames("flex", props.className)}>
       <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 ">
-        {props.username && <BadgeUsername edit username={props.username} />}
+        {props.trainername && (
+          <BadgeTrainername edit trainername={props.trainername} />
+        )}
         {versionAndBadges.map(([pokemonVersion, badges], i) => (
           <div
             className="grid grid-cols-4 justify-items-center gap-2 sm:grid-cols-8"
@@ -53,7 +55,7 @@ export function Badges(
           >
             {badges.sort().map((badgeOrder, i) => (
               <Badge
-                disable={Boolean(props.username)}
+                disable={Boolean(props.trainername)}
                 key={i}
                 order={badgeOrder}
                 version={pokemonVersion}

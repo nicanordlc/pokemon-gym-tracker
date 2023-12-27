@@ -11,7 +11,7 @@ export function CreateSession() {
   const router = useRouter();
   const { setTrainer } = useTrainer();
 
-  const createSession = api.session.createWithUser.useMutation({
+  const createSession = api.session.createWithTrainer.useMutation({
     onSuccess: ({ session, trainer }) => {
       setTrainer(trainer);
       router.push(`/${session.path}`);

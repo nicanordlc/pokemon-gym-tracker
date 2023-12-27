@@ -2,7 +2,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const sessionRouter = createTRPCRouter({
-  createWithUser: publicProcedure
+  createWithTrainer: publicProcedure
     .input(z.object({ name: z.string() }))
     .mutation(async ({ ctx, input }) => {
       const trainer = await ctx.db.trainer.create({ data: { name: input.name } })
