@@ -1,9 +1,12 @@
+"use client";
+
 import { Badges } from "~/app/_components/badges";
 import { Title } from "~/app/_components/title";
-import { useUser } from "~/app/_hooks/use";
+import { useTrainer } from "~/app/_hooks/trainer";
 
-export default function Home() {
-  const user = useUser();
+export default function Session() {
+  const { trainer, trainerMounted } = useTrainer();
+  const username = trainerMounted ? trainer.name : "";
 
   return (
     <div className="grid gap-4">
@@ -11,8 +14,8 @@ export default function Home() {
 
       <Badges init />
 
-      {/* @TODO: get user props from state */}
-      <Badges username={user} red={[1]} emerald={[1]} crystal={[2, 3, 1]} />
+      {/* @TODO: modify trainer's badges from db */}
+      <Badges username={username} red={[1]} emerald={[1]} crystal={[2, 3, 1]} />
     </div>
   );
 }
