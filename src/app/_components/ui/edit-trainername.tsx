@@ -1,14 +1,26 @@
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
-import { EditName } from "~/app/_components/badge-trainername/edit-name";
+import { EditName } from "~/app/_components/edit-name";
 
-export default function BadgeTrainername(props: {
+export default function EditTrainername(props: {
   trainername: string;
   edit?: boolean;
+  onSuccess?: (name: string) => void;
+  onCancel?: () => void;
 }) {
   const [editting, setEditting] = useState(false);
 
   const toggleEdit = () => setEditting((state) => !state);
+
+  const success = (name: string) => {
+    props.onSuccess && props.onSuccess(name);
+    toggleEdit();
+  };
+
+  const cancel = () => {
+    props.onCancel && props.onCancel();
+    toggleEdit();
+  };
 
   function ShowName() {
     return (
@@ -28,8 +40,8 @@ export default function BadgeTrainername(props: {
       {editting ? (
         <EditName
           name={props.trainername}
-          onSubmit={toggleEdit}
-          onCancel={toggleEdit}
+          onSubmit={success}
+          onCancel={cancel}
         />
       ) : (
         <ShowName />

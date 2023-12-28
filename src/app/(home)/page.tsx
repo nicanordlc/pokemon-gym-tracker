@@ -1,4 +1,4 @@
-import { Badges } from "~/app/_components/badges";
+import { Badges } from "~/app/_components/ui/badges";
 import { CreateSession } from "~/app/_components/create-session";
 import { Title } from "~/app/_components/title";
 

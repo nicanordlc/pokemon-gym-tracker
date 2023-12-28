@@ -12,7 +12,7 @@ datasource db {
 
 model Session {
     id   String @id @default(cuid())
-    path String @default(uuid())
+    path String @unique @default(uuid())
 
     trainers Trainer[]
 

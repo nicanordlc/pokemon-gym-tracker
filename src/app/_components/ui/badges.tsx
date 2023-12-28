@@ -3,7 +3,7 @@
 import classNames from "classnames";
 
 import { Badge } from "~/app/_components/badge";
-import BadgeTrainername from "~/app/_components/badge-trainername";
+import EditTrainername from "~/app/_components/ui/edit-trainername";
 
 type BadgesProps = {
   red?: number[];
@@ -46,7 +46,7 @@ export function Badges(
     <div className={classNames("flex", props.className)}>
       <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 ">
         {props.trainername && (
-          <BadgeTrainername edit trainername={props.trainername} />
+          <EditTrainername edit trainername={props.trainername} />
         )}
         {versionAndBadges.map(([pokemonVersion, badges], i) => (
           <div
