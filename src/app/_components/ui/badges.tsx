@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import { Badge } from "~/app/_components/badge";
 import EditTrainername from "~/app/_components/ui/edit-trainername";
+import { type PokemonVersion } from "~/types";
 
 type BadgesProps = {
   red?: number[];
@@ -16,6 +17,10 @@ export function Badges(
     className?: string;
     trainername?: string;
     init?: boolean;
+    title?: boolean;
+    redActive?: number[];
+    crystalActive?: number[];
+    emeraldActive?: number[];
   },
 ) {
   let prepareVersionAndBadges: BadgesProps | [] = [];
@@ -43,12 +48,23 @@ export function Badges(
   const versionAndBadges = Object.entries(prepareVersionAndBadges);
 
   return (
-    <div className={classNames("flex", props.className)}>
-      <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 ">
-        {props.trainername && (
-          <EditTrainername edit trainername={props.trainername} />
-        )}
-        {versionAndBadges.map(([pokemonVersion, badges], i) => (
+    <div
+      className={classNames(
+        "flex flex-col gap-4 rounded-xl bg-white/10 p-4 ",
+        props.className,
+      )}
+    >
+      {props.trainername ? (
+        <EditTrainername edit trainername={props.trainername} />
+      ) : (
+        props.title && <div className="h-[24px]">...</div>
+      )}
+      {versionAndBadges.map(([pokemonVersion, badges], i) => {
+        const version = pokemonVersion as PokemonVersion;
+        // const getActiveVersion = (version: PokemonVersion) =>
+        // `${version}Active`;
+
+        return badges.length ? (
           <div
             className="grid grid-cols-4 justify-items-center gap-2 sm:grid-cols-8"
             key={i}
@@ -57,13 +73,13 @@ export function Badges(
               <Badge
                 disable={Boolean(props.trainername)}
                 key={i}
-                order={badgeOrder}
-                version={pokemonVersion}
+                number={badgeOrder}
+                version={version}
               />
             ))}
           </div>
-        ))}
-      </div>
+        ) : null;
+      })}
     </div>
   );
 }

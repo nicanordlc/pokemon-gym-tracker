@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { useTrainerStore } from "~/app/_store/trainer";
 
 export function useTrainer() {
-  const [trainerMounted, setTrainerMounted] = useState(false);
+  const [mounted, setTrainerMounted] = useState(false);
 
-  const trainer = useTrainerStore((state) => state.trainer);
-  const setTrainer = useTrainerStore((state) => state.setTrainer);
+  const trainer = useTrainerStore((trainer) => trainer);
+
+  const setTrainer = useTrainerStore(({ setTrainer }) => setTrainer);
+  const setBadge = useTrainerStore(({ setBadge }) => setBadge);
 
   useEffect(() => {
     setTrainerMounted(true);
   }, []);
 
-  return { trainer, setTrainer, trainerMounted };
+  return { trainer, setTrainer, mounted, setBadge };
 }
