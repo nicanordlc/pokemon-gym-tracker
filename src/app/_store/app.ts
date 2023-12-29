@@ -3,9 +3,7 @@ import { devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 interface AppStore {
-  app: {
-    sessionId: string;
-  }
+  sessionId: string;
 }
 
 interface AppActions {
@@ -17,14 +15,12 @@ export const useAppStore = create<AppStore & AppActions>()(
     devtools(
       persist(
         (set) => ({
-          app: {
-            sessionId: ''
-          },
+          sessionId: '',
 
-          setSession: ({ id }) => set((state) => { state.app.sessionId = id }),
+          setSession: ({ id }) => set((state) => { state.sessionId = id }),
         }),
 
-        { name: "appStore" },
+        { name: "appStore", skipHydration: true },
       ),
     ),
   ),

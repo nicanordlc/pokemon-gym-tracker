@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useTrainerStore } from "~/app/_store/trainer";
 
 export function useTrainer() {
-  const [mounted, setTrainerMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const trainer = useTrainerStore((trainer) => trainer);
 
@@ -10,7 +10,15 @@ export function useTrainer() {
   const setBadge = useTrainerStore(({ setBadge }) => setBadge);
 
   useEffect(() => {
-    setTrainerMounted(true);
+    async function rehydrate() {
+      await useTrainerStore.persist.rehydrate();
+    }
+
+    rehydrate().catch((e) => {
+      console.error(e);
+    });
+
+    setMounted(true);
   }, []);
 
   return { trainer, setTrainer, mounted, setBadge };

@@ -9,6 +9,14 @@ export function useApp() {
   const setSession = useAppStore(({ setSession }) => setSession);
 
   useEffect(() => {
+    async function rehydrate() {
+      await useAppStore.persist.rehydrate();
+    }
+
+    rehydrate().catch((e) => {
+      console.error(e);
+    });
+
     setMounted(true);
   }, []);
 

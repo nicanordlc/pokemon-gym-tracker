@@ -43,7 +43,7 @@ export const useTrainerStore = create<TrainerState & TrainerActions>()(
             }),
         }),
 
-        { name: "trainerStore" },
+        { name: "trainerStore", skipHydration: true },
       ),
     ),
   ),

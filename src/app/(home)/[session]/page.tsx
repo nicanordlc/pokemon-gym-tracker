@@ -6,7 +6,6 @@ import { Title } from "~/app/_components/title";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { usePathname } from "next/navigation";
 import { useApp } from "~/app/_hooks/app";
-import { api } from "~/trpc/react";
 import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
 
 export default function Session() {
@@ -17,8 +16,6 @@ export default function Session() {
   const sessionId = usePathname().split("/")[1] ?? "";
 
   setSession({ id: sessionId });
-
-  const getTrainer = api.trainer.first.useQuery({ id: trainer.id });
 
   return (
     <div className="grid gap-4">
@@ -33,9 +30,9 @@ export default function Session() {
           className="col-span-7"
           title
           trainername={trainername}
-          red={parseTrainerBadges(getTrainer.data?.badgesRed ?? "")}
-          crystal={parseTrainerBadges(getTrainer.data?.badgesCrystal ?? "")}
-          emerald={parseTrainerBadges(getTrainer.data?.badgesEmerald ?? "")}
+          red={parseTrainerBadges(trainer.badgesRed ?? "")}
+          crystal={parseTrainerBadges(trainer.badgesCrystal ?? "")}
+          emerald={parseTrainerBadges(trainer.badgesEmerald ?? "")}
         />
       </div>
     </div>

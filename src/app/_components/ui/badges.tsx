@@ -61,10 +61,8 @@ export function Badges(
       )}
       {versionAndBadges.map(([pokemonVersion, badges], i) => {
         const version = pokemonVersion as PokemonVersion;
-        // const getActiveVersion = (version: PokemonVersion) =>
-        // `${version}Active`;
 
-        return badges.length ? (
+        return badges?.length ? (
           <div
             className="grid grid-cols-4 justify-items-center gap-2 sm:grid-cols-8"
             key={i}
