@@ -18,7 +18,7 @@ export function Badge(props: {
 
   const toggleActive = () => setActive((currentState) => !currentState);
 
-  const updateBadge = api.trainer.update.useMutation({});
+  const updateBadge = api.trainer.updateBadges.useMutation({});
 
   useEffect(() => {
     if (props.active) {

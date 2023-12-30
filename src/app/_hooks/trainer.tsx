@@ -8,6 +8,7 @@ export function useTrainer() {
 
   const setTrainer = useTrainerStore(({ setTrainer }) => setTrainer);
   const setBadge = useTrainerStore(({ setBadge }) => setBadge);
+  const updateName = useTrainerStore(({ updateName }) => updateName);
 
   useEffect(() => {
     async function rehydrate() {
@@ -21,5 +22,5 @@ export function useTrainer() {
     setMounted(true);
   }, []);
 
-  return { trainer, setTrainer, mounted, setBadge };
+  return { trainer, setTrainer, mounted, setBadge, updateName };
 }

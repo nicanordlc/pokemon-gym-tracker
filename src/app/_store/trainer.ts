@@ -3,14 +3,15 @@ import { devtools, persist } from "zustand/middleware";
 import { type Trainer } from "@prisma/client";
 import { immer } from "zustand/middleware/immer";
 import { updateTrainerBadge } from "~/utils/update-trainer-badge";
-import { type TrainerUpdate } from "~/types";
+import { type TrainerUpdateBadges } from "~/types";
 import { mapPokemonVersionToDb } from "~/trpc/map-pokemon-version-to-db";
 
 type TrainerState = Trainer
 
 interface TrainerActions {
   setTrainer: (trainer: Trainer) => void;
-  setBadge: (props: Omit<TrainerUpdate, 'id'>) => void;
+  setBadge: (props: Omit<TrainerUpdateBadges, 'id'>) => void;
+  updateName: (props: { name: string }) => void;
 }
 
 export const useTrainerStore = create<TrainerState & TrainerActions>()(
@@ -41,6 +42,10 @@ export const useTrainerStore = create<TrainerState & TrainerActions>()(
 
               state[mapPokemonVersionToDb(version)] = updatedBadges;
             }),
+
+          updateName: ({ name }) => set((state) => {
+            state.name = name
+          }),
         }),
 
         { name: "trainerStore", skipHydration: true },

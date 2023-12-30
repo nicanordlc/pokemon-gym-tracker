@@ -4,7 +4,7 @@ import { EditName } from "~/app/_components/edit-name";
 
 export default function EditTrainername(props: {
   trainername: string;
-  edit?: boolean;
+  editable?: boolean;
   onSuccess?: (name: string) => void;
   onCancel?: () => void;
 }) {
@@ -25,7 +25,7 @@ export default function EditTrainername(props: {
   function ShowName() {
     return (
       <>
-        {props.edit && (
+        {props.editable && (
           <button onClick={toggleEdit}>
             <FaEdit />
           </button>

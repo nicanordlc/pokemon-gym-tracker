@@ -7,6 +7,8 @@ import EditTrainername from "~/app/_components/ui/edit-trainername";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { mapPokemonVersionToDb } from "~/trpc/map-pokemon-version-to-db";
 import { type PokemonVersion } from "~/types";
+import { type Trainer } from "@prisma/client";
+import { api } from "~/trpc/react";
 
 type BadgesProps = {
   red?: number[];
@@ -17,18 +19,18 @@ type BadgesProps = {
 export function Badges(
   props: BadgesProps & {
     className?: string;
-    trainername?: string;
+    trainer?: Trainer;
+    editable?: boolean;
     init?: boolean;
     notrack?: boolean;
     title?: boolean;
-    redActive?: number[];
-    crystalActive?: number[];
-    emeraldActive?: number[];
   },
 ) {
-  const { trainer } = useTrainer();
+  const { trainer, updateName } = useTrainer();
   let prepareVersionAndBadges: BadgesProps | [] = [];
   const shouldUseProps = props.red ?? props.emerald ?? props.crystal;
+
+  const updateTrainerName = api.trainer.updateName.useMutation({});
 
   if (shouldUseProps) {
     prepareVersionAndBadges = {
@@ -51,6 +53,15 @@ export function Badges(
 
   const versionAndBadges = Object.entries(prepareVersionAndBadges);
 
+  const editName = (name: string) => {
+    updateName({ name });
+
+    updateTrainerName.mutate({
+      id: props.trainer?.id ?? "",
+      name,
+    });
+  };
+
   return (
     <div
       className={classNames(
@@ -58,8 +69,12 @@ export function Badges(
         props.className,
       )}
     >
-      {props.trainername ? (
-        <EditTrainername edit trainername={props.trainername} />
+      {props.trainer?.name ? (
+        <EditTrainername
+          editable={props.editable}
+          trainername={props.trainer.name}
+          onSuccess={editName}
+        />
       ) : (
         props.title && <div className="h-[24px]">...</div>
       )}
@@ -78,7 +93,7 @@ export function Badges(
 
               return (
                 <Badge
-                  disable={Boolean(props.trainername)}
+                  disable={Boolean(props.trainer?.name)}
                   key={i}
                   number={badgeOrder}
                   version={version}

@@ -14,17 +14,4 @@ export const sessionRouter = createTRPCRouter({
 
       return { session, trainer };
     }),
-
-  getTrainers: publicProcedure
-    .input(z.object({ sessionId: z.string() }))
-    .query(async ({ ctx, input }) => {
-      const session = await ctx.db.session.findFirst({
-        where: {
-          id: input.sessionId,
-        },
-        include: { trainers: true }
-      });
-
-      return session?.trainers;
-    }),
 });

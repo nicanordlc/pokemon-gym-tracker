@@ -3,19 +3,27 @@
 import { Badges } from "~/app/_components/ui/badges";
 import { JoinTrainer } from "~/app/_components/ui/join-trainer";
 import { Title } from "~/app/_components/title";
-import { useTrainer } from "~/app/_hooks/trainer";
 import { usePathname } from "next/navigation";
 import { useApp } from "~/app/_hooks/app";
-import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
+import { useEffect } from "react";
+import { TrainersBadges } from "~/app/_components/ui/trainers-badges";
+import { useTrainer } from "~/app/_hooks/trainer";
+import { api } from "~/trpc/react";
 
 export default function Session() {
-  const { trainer, mounted } = useTrainer();
   const { setSession } = useApp();
-
-  const trainername = mounted ? trainer.name : "";
   const sessionId = usePathname().split("/")[1] ?? "";
+  const { trainer: localTrainer } = useTrainer();
+  const getTrainers = api.trainer.getTrainers.useQuery(
+    { sessionId },
+    { refetchInterval: 1000 },
+  );
 
-  setSession({ id: sessionId });
+  const showTrainers = localTrainer.id || getTrainers.isSuccess;
+
+  useEffect(() => {
+    setSession({ id: sessionId });
+  }, [sessionId]);
 
   return (
     <main className="grid grid-cols-1 items-center justify-items-center gap-y-4 ">
@@ -30,13 +38,14 @@ export default function Session() {
         iconSize={24}
       />
 
-      <Badges
-        title
-        trainername={trainername}
-        red={parseTrainerBadges(trainer.badgesRed ?? "")}
-        crystal={parseTrainerBadges(trainer.badgesCrystal ?? "")}
-        emerald={parseTrainerBadges(trainer.badgesEmerald ?? "")}
-      />
+      {showTrainers ? (
+        <TrainersBadges
+          localTrainer={localTrainer}
+          trainers={getTrainers.data}
+        />
+      ) : (
+        <Badges title />
+      )}
     </main>
   );
 }

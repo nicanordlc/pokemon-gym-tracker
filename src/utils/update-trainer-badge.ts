@@ -1,6 +1,6 @@
-import { type TrainerUpdate } from "~/types";
+import { type TrainerUpdateBadges } from "~/types";
 
-export function updateTrainerBadge(props: Pick<TrainerUpdate, 'badgeNumber'> & {
+export function updateTrainerBadge(props: Pick<TrainerUpdateBadges, 'badgeNumber'> & {
   badges: string;
   remove?: boolean;
 }) {
