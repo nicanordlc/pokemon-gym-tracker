@@ -4,7 +4,7 @@ import { useAppStore } from "~/app/_store/app";
 export function useApp() {
   const [mounted, setMounted] = useState(false);
 
-  const app = useAppStore(({ app }) => app);
+  const app = useAppStore((app) => app);
 
   const setSession = useAppStore(({ setSession }) => setSession);
 

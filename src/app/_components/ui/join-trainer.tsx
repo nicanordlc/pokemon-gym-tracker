@@ -1,10 +1,16 @@
+import classNames from "classnames";
 import { useRef, useState } from "react";
 import { generate } from "silly-animal";
 import { EditName } from "~/app/_components/edit-name";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 
-export function JoinTrainer(props: { sessionId: string; className?: string }) {
+export function JoinTrainer(props: {
+  sessionId: string;
+  className?: string;
+  inputClassName?: string;
+  iconSize?: number;
+}) {
   const [joining, setJoining] = useState(false);
   const [error, setError] = useState(false);
   const { setTrainer } = useTrainer();
@@ -32,23 +38,27 @@ export function JoinTrainer(props: { sessionId: string; className?: string }) {
 
   const cancel = () => toggleJoining();
 
-  return (
-    <div className={props.className}>
-      {joining ? (
-        <EditName
-          className={error ? "border-2 border-red-600" : ""}
-          disable={joinTrainer.isLoading}
-          name={randomName.current}
-          defaultName={randomName.current}
-          onCancel={cancel}
-          onSubmit={success}
-          onChange={() => setError(false)}
-        />
-      ) : (
-        <button className="rounded-md bg-slate-400 p-2" onClick={toggleJoining}>
-          Join
-        </button>
+  return joining ? (
+    <EditName
+      className={props.className}
+      inputClassName={classNames(
+        props.inputClassName,
+        error ? "border-2 border-red-600" : "",
       )}
-    </div>
+      iconSize={props.iconSize}
+      disable={joinTrainer.isLoading}
+      name={randomName.current}
+      defaultName={randomName.current}
+      onCancel={cancel}
+      onSubmit={success}
+      onChange={() => setError(false)}
+    />
+  ) : (
+    <button
+      className={classNames(props.className, "rounded-md bg-slate-400 p-2")}
+      onClick={toggleJoining}
+    >
+      Join
+    </button>
   );
 }

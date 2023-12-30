@@ -18,23 +18,25 @@ export default function Session() {
   setSession({ id: sessionId });
 
   return (
-    <div className="grid gap-4">
-      <Title />
+    <main className="grid grid-cols-1 items-center justify-items-center gap-y-4 ">
+      <Title className="text-center" />
 
-      <div className="container grid grid-cols-12 items-center gap-4">
-        <Badges className="col-span-7" init />
+      <Badges init />
 
-        <JoinTrainer className="col-span-5" sessionId={sessionId} />
+      <JoinTrainer
+        className="min-w-[280px] sm:w-[540px]"
+        inputClassName="grow min-h-[40px]"
+        sessionId={sessionId}
+        iconSize={24}
+      />
 
-        <Badges
-          className="col-span-7"
-          title
-          trainername={trainername}
-          red={parseTrainerBadges(trainer.badgesRed ?? "")}
-          crystal={parseTrainerBadges(trainer.badgesCrystal ?? "")}
-          emerald={parseTrainerBadges(trainer.badgesEmerald ?? "")}
-        />
-      </div>
-    </div>
+      <Badges
+        title
+        trainername={trainername}
+        red={parseTrainerBadges(trainer.badgesRed ?? "")}
+        crystal={parseTrainerBadges(trainer.badgesCrystal ?? "")}
+        emerald={parseTrainerBadges(trainer.badgesEmerald ?? "")}
+      />
+    </main>
   );
 }

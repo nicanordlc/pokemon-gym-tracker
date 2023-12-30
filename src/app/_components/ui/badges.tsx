@@ -50,7 +50,7 @@ export function Badges(
   return (
     <div
       className={classNames(
-        "flex flex-col gap-4 rounded-xl bg-white/10 p-4 ",
+        "flex min-w-[280px] flex-col gap-4 rounded-xl bg-white/10 p-4 sm:min-w-[540px] ",
         props.className,
       )}
     >

@@ -10,6 +10,8 @@ export function EditName(props: {
   onChange?: () => void;
   disable?: boolean;
   className?: string;
+  inputClassName?: string;
+  iconSize?: number;
 }) {
   const computedName = props.name ?? props.defaultName;
   const [inputValue, setInputValue] = useState(computedName);
@@ -25,17 +27,20 @@ export function EditName(props: {
   };
 
   return (
-    <form className="flex items-center gap-2" onSubmit={submit}>
+    <form
+      className={classNames(props.className, "flex items-center gap-2")}
+      onSubmit={submit}
+    >
       <button disabled={props.disable} type="submit">
-        <FaCheckSquare />
+        <FaCheckSquare {...(props.iconSize && { size: props.iconSize })} />
       </button>
       <button disabled={props.disable} onClick={props.onCancel}>
-        <FaTimesCircle />
+        <FaTimesCircle {...(props.iconSize && { size: props.iconSize })} />
       </button>
       <input
         className={classNames(
           "box-content rounded-md px-1 text-black",
-          props.className,
+          props.inputClassName,
         )}
         disabled={props.disable}
         type="text"
