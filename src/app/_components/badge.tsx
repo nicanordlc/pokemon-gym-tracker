@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 import { type PokemonVersion } from "~/types";
@@ -10,6 +10,7 @@ export function Badge(props: {
   version: PokemonVersion;
   disable?: boolean;
   active?: boolean;
+  notrack?: boolean;
 }) {
   const { setBadge, trainer } = useTrainer();
 
@@ -19,8 +20,19 @@ export function Badge(props: {
 
   const updateBadge = api.trainer.update.useMutation({});
 
+  useEffect(() => {
+    if (props.active) {
+      setActive(props.active);
+    }
+  }, [props.active]);
+
   const click = () => {
     toggleActive();
+
+    if (props.notrack) {
+      return;
+    }
+
     const isActive = !active;
 
     setBadge({

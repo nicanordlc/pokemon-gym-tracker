@@ -4,6 +4,8 @@ import classNames from "classnames";
 
 import { Badge } from "~/app/_components/badge";
 import EditTrainername from "~/app/_components/ui/edit-trainername";
+import { useTrainer } from "~/app/_hooks/trainer";
+import { mapPokemonVersionToDb } from "~/trpc/map-pokemon-version-to-db";
 import { type PokemonVersion } from "~/types";
 
 type BadgesProps = {
@@ -17,12 +19,14 @@ export function Badges(
     className?: string;
     trainername?: string;
     init?: boolean;
+    notrack?: boolean;
     title?: boolean;
     redActive?: number[];
     crystalActive?: number[];
     emeraldActive?: number[];
   },
 ) {
+  const { trainer } = useTrainer();
   let prepareVersionAndBadges: BadgesProps | [] = [];
   const shouldUseProps = props.red ?? props.emerald ?? props.crystal;
 
@@ -59,25 +63,39 @@ export function Badges(
       ) : (
         props.title && <div className="h-[24px]">...</div>
       )}
-      {versionAndBadges.map(([pokemonVersion, badges], i) => {
-        const version = pokemonVersion as PokemonVersion;
-
-        return badges?.length ? (
+      {versionAndBadges.map(([pokemonVersion, badges], i) =>
+        badges?.length ? (
           <div
             className="grid grid-cols-4 justify-items-center gap-2 sm:grid-cols-8"
             key={i}
           >
-            {badges.sort().map((badgeOrder, i) => (
-              <Badge
-                disable={Boolean(props.trainername)}
-                key={i}
-                number={badgeOrder}
-                version={version}
-              />
-            ))}
+            {badges.sort().map((badgeOrder, i) => {
+              const version = pokemonVersion as PokemonVersion;
+
+              const isBadgeActive = trainer[
+                mapPokemonVersionToDb(pokemonVersion as PokemonVersion)
+              ]?.includes(String(badgeOrder));
+
+              return (
+                <Badge
+                  disable={Boolean(props.trainername)}
+                  key={i}
+                  number={badgeOrder}
+                  version={version}
+                  {...(props.notrack
+                    ? {
+                        notrack: props.notrack,
+                      }
+                    : {
+                        active: isBadgeActive,
+                      })}
+                  // active={isBadgeActive}
+                />
+              );
+            })}
           </div>
-        ) : null;
-      })}
+        ) : null,
+      )}
     </div>
   );
 }
