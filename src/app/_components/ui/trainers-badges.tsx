@@ -1,26 +1,31 @@
 import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
-import { Badges } from "~/app/_components/ui/badges";
+import { Badges, type BadgesProps } from "~/app/_components/ui/badges";
 import { type Trainer } from "@prisma/client";
 
-export function TrainersBadges(props: {
+export function TrainersBadges({
+  localTrainer,
+  trainers,
+  ...badgesProps
+}: BadgesProps & {
   localTrainer: Trainer;
   trainers?: Trainer[];
 }) {
   return (
     <>
-      {props.localTrainer.id && (
+      {localTrainer.id && (
         <Badges
           title
           editable
-          trainer={props.localTrainer}
-          red={parseTrainerBadges(props.localTrainer.badgesRed ?? "")}
-          crystal={parseTrainerBadges(props.localTrainer.badgesCrystal ?? "")}
-          emerald={parseTrainerBadges(props.localTrainer.badgesEmerald ?? "")}
+          trainer={localTrainer}
+          red={parseTrainerBadges(localTrainer.badgesRed ?? "")}
+          crystal={parseTrainerBadges(localTrainer.badgesCrystal ?? "")}
+          emerald={parseTrainerBadges(localTrainer.badgesEmerald ?? "")}
+          {...badgesProps}
         />
       )}
 
-      {props.trainers?.map((trainer, i) => {
-        if (props.localTrainer.id === trainer.id) {
+      {trainers?.map((trainer, i) => {
+        if (localTrainer.id === trainer.id) {
           return null;
         }
 
@@ -32,6 +37,7 @@ export function TrainersBadges(props: {
             red={parseTrainerBadges(trainer.badgesRed ?? "")}
             crystal={parseTrainerBadges(trainer.badgesCrystal ?? "")}
             emerald={parseTrainerBadges(trainer.badgesEmerald ?? "")}
+            {...badgesProps}
           />
         );
       })}

@@ -9,7 +9,6 @@ export function JoinTrainer(props: {
   sessionId: string;
   className?: string;
   inputClassName?: string;
-  iconSize?: number;
 }) {
   const [joining, setJoining] = useState(false);
   const [error, setError] = useState(false);
@@ -45,7 +44,6 @@ export function JoinTrainer(props: {
         props.inputClassName,
         error ? "border-2 border-red-600" : "",
       )}
-      iconSize={props.iconSize}
       disable={joinTrainer.isLoading}
       name={randomName.current}
       defaultName={randomName.current}

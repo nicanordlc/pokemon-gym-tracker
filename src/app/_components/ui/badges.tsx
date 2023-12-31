@@ -10,24 +10,26 @@ import { type PokemonVersion } from "~/types";
 import { type Trainer } from "@prisma/client";
 import { api } from "~/trpc/react";
 
-type BadgesProps = {
+type TrainerBadges = {
   red?: number[];
   crystal?: number[];
   emerald?: number[];
 };
 
-export function Badges(
-  props: BadgesProps & {
-    className?: string;
-    trainer?: Trainer;
-    editable?: boolean;
-    init?: boolean;
-    notrack?: boolean;
-    title?: boolean;
-  },
-) {
+export type BadgesProps = TrainerBadges & {
+  className?: string;
+  classNameBadgesRow?: string;
+  trainer?: Trainer;
+  editable?: boolean;
+  init?: boolean;
+  notrack?: boolean;
+  title?: boolean;
+  badgesSize?: string;
+};
+
+export function Badges(props: BadgesProps) {
   const { trainer, updateName } = useTrainer();
-  let prepareVersionAndBadges: BadgesProps | [] = [];
+  let prepareVersionAndBadges: TrainerBadges | [] = [];
   const shouldUseProps = props.red ?? props.emerald ?? props.crystal;
 
   const updateTrainerName = api.trainer.updateName.useMutation({});
@@ -62,26 +64,37 @@ export function Badges(
     });
   };
 
+  const badgesCount =
+    (props.red?.length ?? 0) +
+    (props.crystal?.length ?? 0) +
+    (props.emerald?.length ?? 0);
+
   return (
     <div
       className={classNames(
-        "flex min-w-[280px] flex-col gap-4 rounded-xl bg-white/10 p-4 sm:min-w-[540px] ",
+        "flex flex-col gap-4 rounded-xl bg-white/10 p-4 ",
         props.className,
       )}
     >
       {props.trainer?.name ? (
-        <EditTrainername
-          editable={props.editable}
-          trainername={props.trainer.name}
-          onSuccess={editName}
-        />
+        <div className="flex gap-2">
+          <EditTrainername
+            editable={props.editable}
+            trainername={props.trainer.name}
+            onSuccess={editName}
+          />
+          <p className="rounded-full border px-3">{badgesCount}</p>
+        </div>
       ) : (
         props.title && <div className="h-[24px]">...</div>
       )}
       {versionAndBadges.map(([pokemonVersion, badges], i) =>
         badges?.length ? (
           <div
-            className="grid grid-cols-4 justify-items-center gap-2 sm:grid-cols-8"
+            className={classNames(
+              "grid w-fit grid-cols-4 gap-2",
+              props.classNameBadgesRow,
+            )}
             key={i}
           >
             {badges.sort().map((badgeOrder, i) => {
@@ -91,20 +104,22 @@ export function Badges(
                 mapPokemonVersionToDb(pokemonVersion as PokemonVersion)
               ]?.includes(String(badgeOrder));
 
+              const shouldTrack = props.notrack
+                ? {
+                    notrack: props.notrack,
+                  }
+                : {
+                    active: isBadgeActive,
+                  };
+
               return (
                 <Badge
+                  size={classNames("size-14", props.badgesSize)}
                   disable={Boolean(props.trainer?.name)}
                   key={i}
                   number={badgeOrder}
                   version={version}
-                  {...(props.notrack
-                    ? {
-                        notrack: props.notrack,
-                      }
-                    : {
-                        active: isBadgeActive,
-                      })}
-                  // active={isBadgeActive}
+                  {...shouldTrack}
                 />
               );
             })}

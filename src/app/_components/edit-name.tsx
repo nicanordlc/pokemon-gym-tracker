@@ -11,7 +11,6 @@ export function EditName(props: {
   disable?: boolean;
   className?: string;
   inputClassName?: string;
-  iconSize?: number;
 }) {
   const computedName = props.name ?? props.defaultName;
   const [inputValue, setInputValue] = useState(computedName);
@@ -32,12 +31,13 @@ export function EditName(props: {
       onSubmit={submit}
     >
       <button disabled={props.disable} type="submit">
-        <FaCheckSquare {...(props.iconSize && { size: props.iconSize })} />
+        <FaCheckSquare className="size-c-icon" />
       </button>
       <button disabled={props.disable} onClick={props.onCancel}>
-        <FaTimesCircle {...(props.iconSize && { size: props.iconSize })} />
+        <FaTimesCircle className="size-c-icon" />
       </button>
       <input
+        autoFocus
         className={classNames(
           "box-content rounded-md px-1 text-black",
           props.inputClassName,

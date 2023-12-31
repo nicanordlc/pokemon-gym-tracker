@@ -1,6 +1,6 @@
 "use client";
 
-import { Badges } from "~/app/_components/ui/badges";
+import { Badges, type BadgesProps } from "~/app/_components/ui/badges";
 import { JoinTrainer } from "~/app/_components/ui/join-trainer";
 import { Title } from "~/app/_components/title";
 import { usePathname } from "next/navigation";
@@ -25,27 +25,35 @@ export default function Session() {
     setSession({ id: sessionId });
   }, [sessionId]);
 
+  const badgesProps: BadgesProps = {
+    className: "h-full self-start lg:gap-2",
+    classNameBadgesRow: "md:grid-cols-8",
+    badgesSize: "md:size-8 lg:size-10",
+  };
+
   return (
-    <main className="grid grid-cols-1 items-center justify-items-center gap-y-4 ">
-      <Title className="text-center" />
+    <main className="grid grid-cols-1 justify-items-center gap-y-4 ">
+      <Title className="text-center sm:col-span-full " />
 
-      <Badges init />
+      <div className="grid w-fit items-center  justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-start">
+        <Badges init {...badgesProps} />
 
-      <JoinTrainer
-        className="min-w-[280px] sm:w-[540px]"
-        inputClassName="grow min-h-[40px]"
-        sessionId={sessionId}
-        iconSize={24}
-      />
-
-      {showTrainers ? (
-        <TrainersBadges
-          localTrainer={localTrainer}
-          trainers={getTrainers.data}
+        <JoinTrainer
+          className="min-w-[280px] lg:col-span-2 "
+          inputClassName="grow min-h-[40px]"
+          sessionId={sessionId}
         />
-      ) : (
-        <Badges title />
-      )}
+
+        {showTrainers ? (
+          <TrainersBadges
+            localTrainer={localTrainer}
+            trainers={getTrainers.data}
+            {...badgesProps}
+          />
+        ) : (
+          <Badges title />
+        )}
+      </div>
     </main>
   );
 }

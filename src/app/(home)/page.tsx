@@ -7,7 +7,7 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center gap-4 ">
       <Title className="text-center" />
 
-      <Badges init notrack />
+      <Badges classNameBadgesRow="sm:grid-cols-8 " init notrack />
 
       <CreateSession />
     </main>

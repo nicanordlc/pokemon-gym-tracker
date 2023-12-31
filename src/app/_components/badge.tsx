@@ -11,6 +11,7 @@ export function Badge(props: {
   disable?: boolean;
   active?: boolean;
   notrack?: boolean;
+  size?: string;
 }) {
   const { setBadge, trainer } = useTrainer();
 
@@ -53,7 +54,8 @@ export function Badge(props: {
     <button
       onClick={click}
       className={classNames(
-        "flex h-14 w-14 items-center justify-center grayscale transition-all",
+        "flex size-8 grayscale transition-all",
+        props.size ? props.size : "",
         {
           "filter-none": props.disable ? true : active,
         },
@@ -61,13 +63,13 @@ export function Badge(props: {
       disabled={props.disable}
     >
       <Image
-        className={classNames("h-full", {
+        className={classNames("size-full", {
           "drop-shadow-[0px_0px_4px_white]": active && !props.disable,
         })}
         src={`/badges/${props.version}/${props.number}.svg`}
-        alt="GYM Badge from Pokemon fire red"
-        width={100}
-        height={100}
+        alt={`GYM Badge #${props.number} from Pokemon ${props.version}`}
+        width={16}
+        height={16}
       />
     </button>
   );

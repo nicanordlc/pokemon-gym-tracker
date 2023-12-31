@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FaEdit } from "react-icons/fa";
 import { EditName } from "~/app/_components/edit-name";
+import { ShowName } from "~/app/_components/show-name";
 
 export default function EditTrainername(props: {
   trainername: string;
@@ -22,19 +22,6 @@ export default function EditTrainername(props: {
     toggleEdit();
   };
 
-  function ShowName() {
-    return (
-      <>
-        {props.editable && (
-          <button onClick={toggleEdit}>
-            <FaEdit />
-          </button>
-        )}
-        <p>{props.trainername}</p>
-      </>
-    );
-  }
-
   return (
     <div className="flex items-center gap-1">
       {editting ? (
@@ -44,7 +31,11 @@ export default function EditTrainername(props: {
           onCancel={cancel}
         />
       ) : (
-        <ShowName />
+        <ShowName
+          editable={props.editable}
+          name={props.trainername}
+          onClick={toggleEdit}
+        />
       )}
     </div>
   );

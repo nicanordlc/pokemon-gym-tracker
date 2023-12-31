@@ -17,7 +17,10 @@ export default {
       padding: {
         'gutter': '1rem',
         'gutter-sm': '2rem',
-      }
+      },
+      size: {
+        'c-icon': '20px'
+      },
     },
   },
   plugins: [],
