@@ -26,7 +26,7 @@ export default function Session() {
   }, [sessionId]);
 
   const badgesProps: BadgesProps = {
-    className: "h-full self-start lg:gap-2",
+    className: "h-full w-full self-start lg:gap-2",
     classNameBadgesRow: "md:grid-cols-8",
     badgesSize: "md:size-8 lg:size-10",
   };
