@@ -9,6 +9,8 @@ import { mapPokemonVersionToDb } from "~/trpc/map-pokemon-version-to-db";
 import { type PokemonVersion } from "~/types";
 import { type Trainer } from "@prisma/client";
 import { api } from "~/trpc/react";
+import { useApp } from "~/app/_hooks/app";
+import { getTrainer } from "~/utils/get-trainer";
 
 type TrainerBadges = {
   red?: number[];
@@ -28,9 +30,15 @@ export type BadgesProps = TrainerBadges & {
 };
 
 export function Badges(props: BadgesProps) {
-  const { trainer, updateName } = useTrainer();
+  const { trainers, updateName } = useTrainer();
+  const { app } = useApp();
+
   let prepareVersionAndBadges: TrainerBadges | [] = [];
   const shouldUseProps = props.red ?? props.emerald ?? props.crystal;
+  const trainer = getTrainer({
+    trainers,
+    sessionPath: app.sessionId,
+  });
 
   const updateTrainerName = api.trainer.updateName.useMutation({});
 
@@ -56,7 +64,7 @@ export function Badges(props: BadgesProps) {
   const versionAndBadges = Object.entries(prepareVersionAndBadges);
 
   const editName = (name: string) => {
-    updateName({ name });
+    updateName({ sessionPath: app.sessionId, name });
 
     updateTrainerName.mutate({
       id: props.trainer?.id ?? "",

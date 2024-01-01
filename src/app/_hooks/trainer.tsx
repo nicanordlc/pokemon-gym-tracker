@@ -4,7 +4,7 @@ import { useTrainerStore } from "~/app/_store/trainer";
 export function useTrainer() {
   const [mounted, setMounted] = useState(false);
 
-  const trainer = useTrainerStore((trainer) => trainer);
+  const trainers = useTrainerStore(({ trainers }) => trainers);
 
   const setTrainer = useTrainerStore(({ setTrainer }) => setTrainer);
   const setBadge = useTrainerStore(({ setBadge }) => setBadge);
@@ -22,5 +22,5 @@ export function useTrainer() {
     setMounted(true);
   }, []);
 
-  return { trainer, setTrainer, mounted, setBadge, updateName };
+  return { trainers, setTrainer, mounted, setBadge, updateName };
 }

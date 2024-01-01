@@ -13,7 +13,7 @@ export function CreateSession() {
 
   const createSession = api.session.createWithTrainer.useMutation({
     onSuccess: ({ session, trainer }) => {
-      setTrainer(trainer);
+      setTrainer({ trainer });
       router.push(`/${session.path}`);
     },
   });

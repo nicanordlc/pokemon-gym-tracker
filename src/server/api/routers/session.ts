@@ -5,10 +5,15 @@ export const sessionRouter = createTRPCRouter({
   createWithTrainer: publicProcedure
     .input(z.object({ name: z.string() }))
     .mutation(async ({ ctx, input }) => {
-      const trainer = await ctx.db.trainer.create({ data: { name: input.name } })
       const session = await ctx.db.session.create({
+        data: {},
+      });
+      const trainer = await ctx.db.trainer.create({
         data: {
-          trainers: { connect: trainer },
+          name: input.name,
+          session: {
+            connect: session,
+          },
         },
       });
 

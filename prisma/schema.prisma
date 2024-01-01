@@ -27,7 +27,8 @@ model Trainer {
     badgesCrystal String?
     badgesEmerald String?
 
-    sessions Session[]
+    session     Session @relation(fields: [sessionPath], references: [path])
+    sessionPath String
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

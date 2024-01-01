@@ -1,9 +1,11 @@
 import classNames from "classnames";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useApp } from "~/app/_hooks/app";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 import { type PokemonVersion } from "~/types";
+import { getTrainer } from "~/utils/get-trainer";
 
 export function Badge(props: {
   number: number;
@@ -13,7 +15,13 @@ export function Badge(props: {
   notrack?: boolean;
   size?: string;
 }) {
-  const { setBadge, trainer } = useTrainer();
+  const { app } = useApp();
+  const { setBadge, trainers } = useTrainer();
+
+  const trainer = getTrainer({
+    trainers,
+    sessionPath: app.sessionId,
+  });
 
   const [active, setActive] = useState(props.active ?? false);
 
@@ -37,6 +45,7 @@ export function Badge(props: {
     const isActive = !active;
 
     setBadge({
+      sessionPath: app.sessionId,
       version: props.version,
       badgeNumber: props.number,
       remove: !isActive,

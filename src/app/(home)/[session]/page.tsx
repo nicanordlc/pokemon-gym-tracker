@@ -7,19 +7,16 @@ import { usePathname } from "next/navigation";
 import { useApp } from "~/app/_hooks/app";
 import { useEffect } from "react";
 import { TrainersBadges } from "~/app/_components/ui/trainers-badges";
-import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 
 export default function Session() {
   const { setSession } = useApp();
   const sessionId = usePathname().split("/")[1] ?? "";
-  const { trainer: localTrainer } = useTrainer();
+
   const getTrainers = api.trainer.getTrainers.useQuery(
     { sessionId },
     { refetchInterval: 1000 },
   );
-
-  const showTrainers = localTrainer.id || getTrainers.isSuccess;
 
   useEffect(() => {
     setSession({ id: sessionId });
@@ -44,15 +41,7 @@ export default function Session() {
           sessionId={sessionId}
         />
 
-        {showTrainers ? (
-          <TrainersBadges
-            localTrainer={localTrainer}
-            trainers={getTrainers.data}
-            {...badgesProps}
-          />
-        ) : (
-          <Badges title />
-        )}
+        <TrainersBadges trainers={getTrainers.data} {...badgesProps} />
       </div>
     </main>
   );

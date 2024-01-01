@@ -1,15 +1,26 @@
 import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
 import { Badges, type BadgesProps } from "~/app/_components/ui/badges";
 import { type Trainer } from "@prisma/client";
+import { useTrainer } from "~/app/_hooks/trainer";
+import { useApp } from "~/app/_hooks/app";
+import { getTrainer } from "~/utils/get-trainer";
 
 export function TrainersBadges({
-  localTrainer,
   trainers,
   ...badgesProps
 }: BadgesProps & {
-  localTrainer: Trainer;
   trainers?: Trainer[];
 }) {
+  const { app } = useApp();
+  const { trainers: localTrainers } = useTrainer();
+
+  const localTrainer = getTrainer({
+    trainers: localTrainers,
+    sessionPath: app.sessionId,
+  });
+
+  // console.table(localTrainer);
+
   return (
     <>
       {localTrainer.id && (

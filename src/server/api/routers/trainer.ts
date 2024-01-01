@@ -18,15 +18,15 @@ export const trainerRouter = createTRPCRouter({
   create: publicProcedure
     .input(z.object({
       name: z.string().min(3),
-      sessionId: z.string(),
+      sessionPath: z.string(),
     }))
     .mutation(({ ctx, input }) => {
       return ctx.db.trainer.create({
         data: {
           name: input.name,
-          sessions: {
+          session: {
             connect: {
-              path: input.sessionId,
+              path: input.sessionPath,
             }
           },
         },
@@ -74,10 +74,8 @@ export const trainerRouter = createTRPCRouter({
     .query(({ ctx, input }) => {
       return ctx.db.trainer.findMany({
         where: {
-          sessions: {
-            some: {
-              path: input.sessionId,
-            }
+          session: {
+            path: input.sessionId,
           }
         },
       });

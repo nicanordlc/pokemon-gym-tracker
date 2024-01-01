@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { useRef, useState } from "react";
 import { generate } from "silly-animal";
 import { EditName } from "~/app/_components/edit-name";
+import { useApp } from "~/app/_hooks/app";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 
@@ -13,13 +14,14 @@ export function JoinTrainer(props: {
   const [joining, setJoining] = useState(false);
   const [error, setError] = useState(false);
   const { setTrainer } = useTrainer();
+
   const randomName = useRef(generate());
 
   const generateNew = () => (randomName.current = generate());
 
   const joinTrainer = api.trainer.create.useMutation({
     onSuccess: (trainer) => {
-      setTrainer(trainer);
+      setTrainer({ trainer });
       toggleJoining();
       generateNew();
       setError(false);
@@ -32,7 +34,7 @@ export function JoinTrainer(props: {
   const toggleJoining = () => setJoining((state) => !state);
 
   const success = (name: string) => {
-    joinTrainer.mutate({ name, sessionId: props.sessionId });
+    joinTrainer.mutate({ name, sessionPath: props.sessionId });
   };
 
   const cancel = () => toggleJoining();
