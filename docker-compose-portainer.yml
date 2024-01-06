@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  app:
+    image: pokemon-gym-tracker
+    container_name: pokemon-gym-tracker
+    hostname: pokemon-gym-tracker
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        DATABASE_URL: "${DATABASE_URL}"
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+    restart: unless-stopped
+    volumes:
+      - pokemonGymTrackerData:/app/
+    networks:
+        default:
+          ipv4_address: 10.0.0.249
+
+  sqlitebrowser:
+    image: lscr.io/linuxserver/sqlitebrowser:latest
+    container_name: sqlitebrowser
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Santo_Domingo
+    volumes:
+      - pokemonGymTrackerData:/config
+    ports:
+      - 3001:3000
+    restart: unless-stopped
+    networks:
+      default:
+        ipv4_address: 10.0.0.250
+
+volumes:
+  pokemonGymTrackerData:
+
+networks:
+  default:
+    external:
+      name: macvlan.network
