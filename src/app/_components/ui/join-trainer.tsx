@@ -2,7 +2,6 @@ import classNames from "classnames";
 import { useRef, useState } from "react";
 import { generate } from "silly-animal";
 import { EditName } from "~/app/_components/edit-name";
-import { useApp } from "~/app/_hooks/app";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 

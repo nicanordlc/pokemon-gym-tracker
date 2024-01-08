@@ -9,7 +9,18 @@ import { useEffect } from "react";
 import { TrainersBadges } from "~/app/_components/ui/trainers-badges";
 import { api } from "~/trpc/react";
 
+import { useTrainer } from "~/app/_hooks/trainer";
+import { getTrainer } from "~/utils/get-trainer";
+
 export default function Session() {
+  const { app } = useApp();
+  const { trainers: localTrainers } = useTrainer();
+
+  const localTrainer = getTrainer({
+    trainers: localTrainers,
+    sessionPath: app.sessionId,
+  });
+
   const { setSession } = useApp();
   const sessionId = usePathname().split("/")[1] ?? "";
 
@@ -23,7 +34,7 @@ export default function Session() {
   }, [sessionId]);
 
   const badgesProps: BadgesProps = {
-    className: "h-full w-full self-start lg:gap-2",
+    className: "size-full lg:gap-2",
     classNameBadgesRow: "md:grid-cols-8",
     badgesSize: "md:size-8 lg:size-10",
   };
@@ -33,15 +44,22 @@ export default function Session() {
       <Title className="text-center sm:col-span-full " />
 
       <div className="grid w-fit items-center  justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-start">
-        <Badges init {...badgesProps} />
+        <Badges init highlightBadges={localTrainer} {...badgesProps} />
 
         <JoinTrainer
-          className="min-w-[280px] lg:col-span-2 "
+          className="w-full "
           inputClassName="grow min-h-[40px]"
           sessionId={sessionId}
         />
 
-        <TrainersBadges trainers={getTrainers.data} {...badgesProps} />
+        <div>{/** grid divider */}</div>
+
+        <TrainersBadges
+          disabled
+          localTrainer={localTrainer}
+          trainers={getTrainers.data}
+          {...badgesProps}
+        />
       </div>
     </main>
   );

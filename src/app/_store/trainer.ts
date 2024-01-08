@@ -4,7 +4,7 @@ import { type Trainer } from "@prisma/client";
 import { immer } from "zustand/middleware/immer";
 import { updateTrainerBadge } from "~/utils/update-trainer-badge";
 import { type TrainerUpdateBadges } from "~/types";
-import { mapPokemonVersionToDb } from "~/trpc/map-pokemon-version-to-db";
+import { mapPokemonVersionToDb } from "~/utils/map-pokemon-version-to-db";
 
 type TrainerState = {
   trainers: Trainer[];
