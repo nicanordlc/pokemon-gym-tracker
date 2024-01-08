@@ -10,9 +10,8 @@ import { getTrainer } from "~/utils/get-trainer";
 export function Badge(props: {
   number: number;
   version: PokemonVersion;
-  disable?: boolean;
+  disabled?: boolean;
   active?: boolean;
-  notrack?: boolean;
   size?: string;
 }) {
   const { app } = useApp();
@@ -38,7 +37,7 @@ export function Badge(props: {
   const click = () => {
     toggleActive();
 
-    if (props.notrack) {
+    if (props.disabled) {
       return;
     }
 
@@ -66,14 +65,14 @@ export function Badge(props: {
         "flex size-8 grayscale transition-all",
         props.size ? props.size : "",
         {
-          "filter-none": props.disable ? true : active,
+          "filter-none": props.disabled ? true : active,
         },
       )}
-      disabled={props.disable}
+      disabled={props.disabled}
     >
       <Image
         className={classNames("size-full", {
-          "drop-shadow-[0px_0px_4px_white]": active && !props.disable,
+          "drop-shadow-[0px_0px_4px_white]": active && !props.disabled,
         })}
         src={`/badges/${props.version}/${props.number}.svg`}
         alt={`GYM Badge #${props.number} from Pokemon ${props.version}`}

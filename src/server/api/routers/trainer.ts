@@ -1,20 +1,10 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-import { mapPokemonVersionToDb } from "~/trpc/map-pokemon-version-to-db";
+import { mapPokemonVersionToDb } from "~/utils/map-pokemon-version-to-db";
 import { trainerUpdateBadgesSchema } from "~/types";
 import { updateTrainerBadge } from "~/utils/update-trainer-badge";
 
 export const trainerRouter = createTRPCRouter({
-  first: publicProcedure
-    .input(z.object({ id: z.string() }))
-    .query(({ ctx, input }) => {
-      return ctx.db.trainer.findFirst({
-        where: {
-          id: input.id,
-        },
-      });
-    }),
-
   create: publicProcedure
     .input(z.object({
       name: z.string().min(3),
