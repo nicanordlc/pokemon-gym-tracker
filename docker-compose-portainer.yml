@@ -16,7 +16,7 @@ services:
       - DATABASE_URL=${DATABASE_URL}
     restart: unless-stopped
     volumes:
-      - pokemonGymTrackerData:/app/
+      - pokemonGymTrackerData:/app/data
     networks:
         default:
           ipv4_address: 10.0.0.249
