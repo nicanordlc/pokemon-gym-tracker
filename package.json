@@ -10,7 +10,10 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "image:build": "docker build . -t ghcr.io/cabaalexander/pokemon-gym-tracker:latest",
+    "image:push": "docker push ghcr.io/cabaalexander/pokemon-gym-tracker:latest",
+    "image:deploy": "yarn image:build && yarn image:push"
   },
   "dependencies": {
     "@prisma/client": "^5.6.0",

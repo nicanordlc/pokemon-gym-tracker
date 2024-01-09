@@ -16,6 +16,8 @@ FROM node:current-alpine as builder
 
 WORKDIR /app
 
+ENV DATABASE_URL=file:/app/data/db.sqlite
+
 ARG DATABASE_URL
 
 COPY --from=deps /app/node_modules ./node_modules
@@ -47,5 +49,9 @@ COPY --from=builder /app/data/db.sqlite ./data/db.sqlite
 VOLUME /app
 
 EXPOSE 3000
+
+ENV DATABASE_URL=file:/app/data/db.sqlite
+
+LABEL org.opencontainers.image.source=https://github.com/cabaalexander/pokemon-gym-tracker
 
 CMD ["node", "server.js"]

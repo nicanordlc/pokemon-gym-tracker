@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   app:
-    image: pokemon-gym-tracker
+    image: ghcr.io/cabaalexander/pokemon-gym-tracker:latest
     container_name: pokemon-gym-tracker
     hostname: pokemon-gym-tracker
     build:
