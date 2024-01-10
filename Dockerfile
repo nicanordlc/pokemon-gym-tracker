@@ -46,8 +46,6 @@ COPY --from=builder /app/data/db.sqlite ./data/db.sqlite
 
 #### OPTIONS
 
-VOLUME /app
-
 EXPOSE 3000
 
 ENV DATABASE_URL=file:/app/data/db.sqlite
