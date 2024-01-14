@@ -13,6 +13,7 @@ import {
   type BadgesRowProps,
 } from "~/app/_components/ui/badges/badges-row";
 import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
+import { type MouseEventHandler } from "react";
 
 type TrainerBadges = {
   red?: number[];
@@ -30,6 +31,8 @@ export type BadgesProps = TrainerBadges & {
   title?: boolean;
   badgesSize?: string;
   highlightBadges?: Trainer;
+  onContextMenu?: MouseEventHandler<HTMLDivElement>;
+  contextMenuElement?: React.ElementType<{ className?: string }>;
 };
 
 export function Badges(props: BadgesProps) {
@@ -68,6 +71,7 @@ export function Badges(props: BadgesProps) {
         "flex flex-col gap-4 rounded-xl bg-white/10 p-4 ",
         props.className,
       )}
+      onContextMenu={props.onContextMenu}
     >
       <HideChildren if={!props.trainer?.name} className="flex gap-2">
         <EditTrainername
