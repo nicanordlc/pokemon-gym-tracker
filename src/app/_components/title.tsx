@@ -1,10 +1,10 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import Link from "next/link";
 
 export function Title({ className }: { className?: string }) {
   return (
     <h1
-      className={classNames(
+      className={clsx(
         "text-5xl font-extrabold tracking-tight sm:text-[5rem]",
         className,
       )}

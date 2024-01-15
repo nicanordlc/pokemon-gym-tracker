@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useApp } from "~/app/_hooks/app";
@@ -61,7 +61,7 @@ export function Badge(props: {
   return (
     <button
       onClick={click}
-      className={classNames(
+      className={clsx(
         "flex size-8 grayscale transition-all",
         props.size ? props.size : "",
         {
@@ -71,7 +71,7 @@ export function Badge(props: {
       disabled={props.disabled}
     >
       <Image
-        className={classNames("size-full", {
+        className={clsx("size-full", {
           "drop-shadow-[0px_0px_4px_white]": active && !props.disabled,
         })}
         src={`/badges/${props.version}/${props.number}.svg`}

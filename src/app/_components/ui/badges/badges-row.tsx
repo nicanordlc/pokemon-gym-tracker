@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { Badge } from "~/app/_components/badge";
 import { type PokemonVersion } from "~/types";
 
@@ -17,11 +17,11 @@ export function BadgesRow(props: BadgesRowProps) {
   }
 
   return (
-    <div className={classNames("grid grid-cols-4 gap-2 ", props.className)}>
+    <div className={clsx("grid grid-cols-4 gap-2 ", props.className)}>
       {props.badges.sort().map((badgeOrder, i) => {
         return (
           <Badge
-            size={classNames("size-[50px]", props.badgesSize)}
+            size={clsx("size-[50px]", props.badgesSize)}
             disabled={props.disabled}
             key={i}
             number={badgeOrder}

@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { type ChangeEvent, useState, type FormEvent } from "react";
 import { FaCheckSquare, FaTimesCircle } from "react-icons/fa";
 
@@ -27,7 +27,7 @@ export function EditName(props: {
 
   return (
     <form
-      className={classNames(props.className, "flex items-center gap-2")}
+      className={clsx(props.className, "flex items-center gap-2")}
       onSubmit={submit}
     >
       <button disabled={props.disable} type="submit">
@@ -38,7 +38,7 @@ export function EditName(props: {
       </button>
       <input
         autoFocus
-        className={classNames(
+        className={clsx(
           "box-content rounded-md px-1 text-black",
           props.inputClassName,
         )}

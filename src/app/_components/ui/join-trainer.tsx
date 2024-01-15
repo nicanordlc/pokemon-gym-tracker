@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import { useRef, useState } from "react";
 import { generate } from "silly-animal";
 import { EditName } from "~/app/_components/edit-name";
@@ -53,7 +53,7 @@ export function JoinTrainer(props: {
   return joining ? (
     <EditName
       className={props.className}
-      inputClassName={classNames(
+      inputClassName={clsx(
         props.inputClassName,
         error ? "border-2 border-red-600" : "",
       )}
@@ -66,7 +66,7 @@ export function JoinTrainer(props: {
     />
   ) : (
     <button
-      className={classNames(props.className, "rounded-md bg-slate-400 p-2")}
+      className={clsx(props.className, "rounded-md bg-slate-400 p-2")}
       onClick={toggleJoining}
     >
       Join
