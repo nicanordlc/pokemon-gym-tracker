@@ -11,6 +11,7 @@ import { api } from "~/trpc/react";
 
 import { useTrainer } from "~/app/_hooks/trainer";
 import { getTrainer } from "~/utils/get-trainer";
+import { env } from "~/env";
 
 export default function Session() {
   const { app } = useApp();
@@ -20,13 +21,14 @@ export default function Session() {
     trainers: localTrainers,
     sessionPath: app.sessionId,
   });
+  const isNotDev = env.NEXT_PUBLIC_NODE_ENV !== "development";
 
   const { setSession } = useApp();
   const sessionId = usePathname().split("/")[1] ?? "";
 
   const getTrainers = api.trainer.getTrainers.useQuery(
     { sessionId },
-    { refetchInterval: 1000 },
+    { ...(isNotDev && { refetchInterval: 1000 }) },
   );
 
   useEffect(() => {
