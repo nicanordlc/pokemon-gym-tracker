@@ -1,7 +1,5 @@
 "use client";
 
-import classNames from "classnames";
-
 import EditTrainername from "~/app/_components/ui/edit-trainername";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { type Trainer } from "@prisma/client";
@@ -14,6 +12,7 @@ import {
 } from "~/app/_components/ui/badges/badges-row";
 import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
 import { type MouseEventHandler } from "react";
+import clsx from "clsx";
 
 type TrainerBadges = {
   red?: number[];
@@ -67,7 +66,7 @@ export function Badges(props: BadgesProps) {
 
   return (
     <div
-      className={classNames(
+      className={clsx(
         "flex flex-col gap-4 rounded-xl bg-white/10 p-4 ",
         props.className,
       )}
