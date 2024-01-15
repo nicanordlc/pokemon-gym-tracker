@@ -20,7 +20,7 @@ export function CreateSession() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createSession.mutate({ name: generate() });
+    createSession.mutate({ name: generate(), isLeader: true });
   };
 
   return (

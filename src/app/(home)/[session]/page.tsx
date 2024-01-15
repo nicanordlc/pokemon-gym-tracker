@@ -54,7 +54,7 @@ export default function Session() {
           sessionId={sessionId}
         />
 
-        <div>{/** grid divider */}</div>
+        <div className="hidden lg:block">{/** grid divider */}</div>
 
         <TrainersBadges
           disabled

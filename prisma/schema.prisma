@@ -21,11 +21,12 @@ model Session {
 }
 
 model Trainer {
-    id            String  @id @default(cuid())
+    id            String   @id @default(cuid())
     name          String
     badgesRed     String?
     badgesCrystal String?
     badgesEmerald String?
+    sessionLeader Boolean? @default(false)
 
     session     Session @relation(fields: [sessionPath], references: [path])
     sessionPath String

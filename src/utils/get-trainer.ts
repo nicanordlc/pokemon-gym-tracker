@@ -13,6 +13,7 @@ export function getTrainer(props: {
     name: "",
     sessionPath: "",
     updatedAt: new Date(),
+    sessionLeader: false,
   };
 
   return (

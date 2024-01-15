@@ -9,11 +9,13 @@ export const trainerRouter = createTRPCRouter({
     .input(z.object({
       name: z.string().min(3),
       sessionPath: z.string(),
+      isLeader: z.boolean().optional().nullable(),
     }))
     .mutation(({ ctx, input }) => {
       return ctx.db.trainer.create({
         data: {
           name: input.name,
+          ...(input.isLeader && {sessionLeader: input.isLeader}),
           session: {
             connect: {
               path: input.sessionPath,
@@ -69,6 +71,14 @@ export const trainerRouter = createTRPCRouter({
           }
         },
       });
+    }),
+
+    delete: publicProcedure.input(z.object({id: z.string()})).mutation(({ctx, input}) => {
+      return ctx.db.trainer.delete({
+        where: {
+          id: input.id,
+        },
+      })
     }),
 });
 
