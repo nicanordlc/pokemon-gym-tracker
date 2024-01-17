@@ -17,7 +17,12 @@ export function BadgesRow(props: BadgesRowProps) {
   }
 
   return (
-    <div className={clsx("grid grid-cols-4 gap-2 ", props.className)}>
+    <div
+      className={clsx(
+        "grid grid-cols-4 justify-items-center gap-2 ",
+        props.className,
+      )}
+    >
       {props.badges.sort().map((badgeOrder, i) => {
         return (
           <Badge

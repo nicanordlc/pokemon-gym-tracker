@@ -36,13 +36,13 @@ export default function Session() {
   }, [sessionId]);
 
   const badgesProps: BadgesProps = {
-    className: "size-full lg:gap-2",
+    className: "w-64 sm:size-full lg:gap-2",
     classNameBadgesRow: "md:grid-cols-8",
     badgesSize: "md:size-8 lg:size-10",
   };
 
   return (
-    <main className="grid grid-cols-1 justify-items-center gap-y-4 ">
+    <main className="container mx-auto grid grid-cols-1 justify-items-center gap-y-4 ">
       <Title className="text-center sm:col-span-full " />
 
       <div className="grid w-fit items-center  justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-start">

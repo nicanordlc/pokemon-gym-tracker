@@ -23,7 +23,7 @@ export default function EditTrainername(props: {
   };
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex grow items-start gap-1">
       {editting ? (
         <EditName
           name={props.trainername}

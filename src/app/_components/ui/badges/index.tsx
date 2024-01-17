@@ -72,7 +72,10 @@ export function Badges(props: BadgesProps) {
       )}
       onContextMenu={props.onContextMenu}
     >
-      <HideChildren if={!props.trainer?.name} className="flex gap-2">
+      <HideChildren
+        className="flex items-start justify-between gap-2"
+        if={!props.trainer?.name}
+      >
         <EditTrainername
           editable={props.editable}
           trainername={props.trainer?.name ?? ""}

@@ -8,7 +8,7 @@ export function ShowName(props: {
   return (
     <>
       {props.editable && (
-        <button onClick={props.onClick}>
+        <button className="mt-[2px]" onClick={props.onClick}>
           <FaEdit className="size-c-icon" />
         </button>
       )}

@@ -27,7 +27,7 @@ export function EditName(props: {
 
   return (
     <form
-      className={clsx(props.className, "flex items-center gap-2")}
+      className={clsx(props.className, "flex w-full items-center gap-2")}
       onSubmit={submit}
     >
       <button disabled={props.disable} type="submit">
@@ -39,6 +39,7 @@ export function EditName(props: {
       <input
         autoFocus
         className={clsx(
+          "w-full",
           "box-content rounded-md px-1 text-black",
           props.inputClassName,
         )}
