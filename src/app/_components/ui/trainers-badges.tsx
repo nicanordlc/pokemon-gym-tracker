@@ -1,16 +1,8 @@
 import { parseTrainerBadges } from "~/utils/parse-trainer-badges";
 import { Badges, type BadgesProps } from "~/app/_components/ui/badges";
 import { type Trainer } from "@prisma/client";
-import {
-  CONTEXT_MENU_TRAINER_ID,
-  ContextMenuTrainer,
-} from "./context-menu/trainer";
-import {
-  type TriggerEvent,
-  useContextMenu,
-  type ItemParams,
-} from "react-contexify";
-import { api } from "~/trpc/react";
+import { CONTEXT_MENU_ID_TRAINER } from "./context-menu/trainer";
+import { type TriggerEvent, useContextMenu } from "react-contexify";
 
 export function TrainersBadges({
   localTrainer,
@@ -20,28 +12,14 @@ export function TrainersBadges({
   localTrainer?: Trainer;
   trainers?: Trainer[];
 }) {
-  const { show } = useContextMenu({ id: CONTEXT_MENU_TRAINER_ID });
-
-  const deleteTrainer = api.trainer.delete.useMutation();
-
-  const isLocalTrainerLeader = localTrainer?.sessionLeader;
+  const { show } = useContextMenu({ id: CONTEXT_MENU_ID_TRAINER });
 
   const displayMenu = (trainer: Trainer) => (event: TriggerEvent) => {
-    if (!isLocalTrainerLeader) {
+    if (!localTrainer?.sessionLeader) {
       return;
     }
 
     show({ event, props: trainer });
-  };
-
-  const itemHandler = (args: ItemParams) => {
-    const trainer = args.props as Trainer;
-
-    switch (args.id) {
-      case "delete":
-        deleteTrainer.mutate({ id: trainer.id });
-        break;
-    }
   };
 
   return (
@@ -58,7 +36,6 @@ export function TrainersBadges({
         />
       )}
 
-      {isLocalTrainerLeader && <ContextMenuTrainer itemHandler={itemHandler} />}
       {trainers?.map((trainer, i) => {
         if (localTrainer?.id === trainer.id) {
           return null;

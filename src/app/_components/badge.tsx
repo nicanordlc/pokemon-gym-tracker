@@ -1,11 +1,13 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { type TriggerEvent, useContextMenu } from "react-contexify";
 import { useApp } from "~/app/_hooks/app";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { api } from "~/trpc/react";
 import { type PokemonVersion } from "~/types";
 import { getTrainer } from "~/utils/get-trainer";
+import { CONTEXT_MENU_ID_BADGE } from "./ui/context-menu/badge";
 
 export function Badge(props: {
   number: number;
@@ -16,6 +18,7 @@ export function Badge(props: {
 }) {
   const { app } = useApp();
   const { setBadge, trainers } = useTrainer();
+  const { show } = useContextMenu({ id: CONTEXT_MENU_ID_BADGE });
 
   const trainer = getTrainer({
     trainers,
@@ -24,8 +27,6 @@ export function Badge(props: {
 
   const [active, setActive] = useState(props.active ?? false);
 
-  const toggleActive = () => setActive((currentState) => !currentState);
-
   const updateBadge = api.trainer.updateBadges.useMutation({});
 
   useEffect(() => {
@@ -33,6 +34,20 @@ export function Badge(props: {
       setActive(props.active);
     }
   }, [props.active]);
+
+  const toggleActive = () => setActive((currentState) => !currentState);
+
+  const displayMenu = (event: TriggerEvent) => {
+    event.stopPropagation();
+
+    show({
+      event,
+      props: {
+        version: props.version,
+        number: props.number,
+      },
+    });
+  };
 
   const click = () => {
     toggleActive();
@@ -61,6 +76,7 @@ export function Badge(props: {
   return (
     <button
       onClick={click}
+      onContextMenu={displayMenu}
       className={clsx(
         "flex size-8 grayscale transition-all",
         props.size ? props.size : "",

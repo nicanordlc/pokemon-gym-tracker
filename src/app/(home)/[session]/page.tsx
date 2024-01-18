@@ -12,6 +12,8 @@ import { api } from "~/trpc/react";
 import { useTrainer } from "~/app/_hooks/trainer";
 import { getTrainer } from "~/utils/get-trainer";
 import { env } from "~/env";
+import { ContextMenuTrainer } from "~/app/_components/ui/context-menu/trainer";
+import { ContextMenuBadge } from "~/app/_components/ui/context-menu/badge";
 
 export default function Session() {
   const { app } = useApp();
@@ -63,6 +65,9 @@ export default function Session() {
           {...badgesProps}
         />
       </div>
+
+      {localTrainer?.sessionLeader && <ContextMenuTrainer />}
+      <ContextMenuBadge />
     </main>
   );
 }
