@@ -3,6 +3,7 @@ import { Badges, type BadgesProps } from "~/app/_components/ui/badges";
 import { type Trainer } from "@prisma/client";
 import { CONTEXT_MENU_ID_TRAINER } from "./context-menu/trainer";
 import { type TriggerEvent, useContextMenu } from "react-contexify";
+import clsx from "clsx";
 
 export function TrainersBadges({
   localTrainer,
@@ -14,8 +15,10 @@ export function TrainersBadges({
 }) {
   const { show } = useContextMenu({ id: CONTEXT_MENU_ID_TRAINER });
 
+  const isLocalLeader = localTrainer?.sessionLeader;
+
   const displayMenu = (trainer: Trainer) => (event: TriggerEvent) => {
-    if (!localTrainer?.sessionLeader) {
+    if (!isLocalLeader) {
       return;
     }
 
@@ -51,6 +54,12 @@ export function TrainersBadges({
             emerald={parseTrainerBadges(trainer.badgesEmerald)}
             onContextMenu={displayMenu(trainer)}
             {...badgesProps}
+            className={clsx(
+              badgesProps.className,
+              isLocalLeader
+                ? "hover:cursor-context-menu"
+                : "hover:cursor-default",
+            )}
           />
         );
       })}

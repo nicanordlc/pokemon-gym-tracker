@@ -81,7 +81,9 @@ export function Badges(props: BadgesProps) {
           trainername={props.trainer?.name ?? ""}
           onSuccess={editName}
         />
-        <p className="rounded-full border px-3">{badgesCount}</p>
+        <p className="rounded-full border px-3 hover:cursor-[inherit]">
+          {badgesCount}
+        </p>
       </HideChildren>
 
       <BadgesRow

@@ -78,7 +78,7 @@ export function Badge(props: {
       onClick={click}
       onContextMenu={displayMenu}
       className={clsx(
-        "flex size-8 grayscale transition-all",
+        "flex size-8 grayscale transition-all hover:cursor-context-menu",
         props.size ? props.size : "",
         {
           "filter-none": props.disabled ? true : active,

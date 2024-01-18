@@ -12,7 +12,7 @@ export function ShowName(props: {
           <FaEdit className="size-c-icon" />
         </button>
       )}
-      <p>{props.name}</p>
+      <p className="hover:cursor-[inherit]">{props.name}</p>
     </>
   );
 }
