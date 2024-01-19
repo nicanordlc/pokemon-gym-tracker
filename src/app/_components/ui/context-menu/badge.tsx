@@ -1,10 +1,17 @@
 import { Item, type ItemParams, Menu, RightSlot } from "react-contexify";
+import { useModalContext } from "~/app/_context/modal";
 
 export const CONTEXT_MENU_ID_BADGE = "context-menu-badge";
 
 export function ContextMenuBadge() {
-  const clickHandler = ({ props }: ItemParams): void => {
-    console.log(props);
+  const { setModalContext } = useModalContext();
+
+  const clickHandler = ({ id }: ItemParams): void => {
+    switch (id) {
+      case "info":
+        setModalContext({ active: true });
+        break;
+    }
   };
 
   const shortcutInfo = (e: KeyboardEvent) => e.key === "i";
