@@ -14,7 +14,7 @@ import { getTrainer } from "~/utils/get-trainer";
 import { env } from "~/env";
 import { ContextMenuTrainer } from "~/app/_components/ui/context-menu/trainer";
 import { ContextMenuBadge } from "~/app/_components/ui/context-menu/badge";
-import { ModalBadgeInfo } from "~/app/_components/ui/modals/badge-info";
+import { ModalBase } from "~/app/_components/ui/modals/modal-base";
 import { ModalProvider } from "~/app/_context/modal";
 
 export default function Session() {
@@ -71,7 +71,7 @@ export default function Session() {
 
         {localTrainer?.sessionLeader && <ContextMenuTrainer />}
         <ContextMenuBadge />
-        <ModalBadgeInfo />
+        <ModalBase />
       </ModalProvider>
     </main>
   );

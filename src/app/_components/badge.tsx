@@ -9,13 +9,18 @@ import { type PokemonVersion } from "~/types";
 import { getTrainer } from "~/utils/get-trainer";
 import { CONTEXT_MENU_ID_BADGE } from "./ui/context-menu/badge";
 
-export function Badge(props: {
+export type Badge = {
   number: number;
   version: PokemonVersion;
+};
+
+type BadgeProps = Badge & {
   disabled?: boolean;
   active?: boolean;
   size?: string;
-}) {
+};
+
+export function Badge(props: BadgeProps) {
   const { app } = useApp();
   const { setBadge, trainers } = useTrainer();
   const { show } = useContextMenu({ id: CONTEXT_MENU_ID_BADGE });

@@ -8,12 +8,18 @@ import {
 
 type ModalContextState = {
   active: boolean;
+  content: React.ReactNode | null;
 };
 
 type ModalContextType = {
   modalContext: ModalContextState;
   setModalContext: Dispatch<SetStateAction<ModalContextState>>;
 } | null;
+
+const MODAL_CONTEXT_STATE_INIT: ModalContextState = {
+  active: false,
+  content: null,
+};
 
 const ModalContext = createContext<ModalContextType>(null);
 ModalContext.displayName = "ModalContext";
@@ -36,11 +42,10 @@ export function useModalContext() {
 export function ModalProvider(props: {
   children: React.ReactNode;
   value?: ModalContextType;
-  init?: boolean;
 }) {
-  const [modalContext, setModalContext] = useState<ModalContextState>({
-    active: false,
-  });
+  const [modalContext, setModalContext] = useState<ModalContextState>(
+    MODAL_CONTEXT_STATE_INIT,
+  );
 
   return (
     <ModalContext.Provider value={{ modalContext, setModalContext }}>

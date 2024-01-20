@@ -4,7 +4,7 @@ import { Badges } from "~/app/_components/ui/badges";
 import { CreateSession } from "~/app/_components/create-session";
 import { Title } from "~/app/_components/title";
 import { ContextMenuBadge } from "~/app/_components/ui/context-menu/badge";
-import { ModalBadgeInfo } from "~/app/_components/ui/modals/badge-info";
+import { ModalBase } from "~/app/_components/ui/modals/modal-base";
 import { ModalProvider } from "~/app/_context/modal";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
         <CreateSession />
 
         <ContextMenuBadge />
-        <ModalBadgeInfo />
+        <ModalBase />
       </ModalProvider>
     </main>
   );

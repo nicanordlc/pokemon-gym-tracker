@@ -2,21 +2,25 @@ import clsx from "clsx";
 import ReactModal from "react-modal";
 import { useModalContext } from "~/app/_context/modal";
 
-export function ModalBadgeInfo() {
+export function ModalBase() {
   const { setModalContext, modalContext } = useModalContext();
 
   const handleClose = () => {
-    setModalContext({ active: false });
+    setModalContext({ active: false, content: null });
   };
 
   return (
     <ReactModal
       ariaHideApp={false}
-      className={clsx("absolute inset-5 bg-gray-800 p-5")}
+      className={clsx("absolute inset-3 bg-gray-800 p-5")}
       onRequestClose={handleClose}
       isOpen={modalContext.active}
     >
-      <button onClick={handleClose}>Close Modal</button>
+      {modalContext.content}
+
+      <button className="absolute right-2 top-2" onClick={handleClose}>
+        ❌
+      </button>
     </ReactModal>
   );
 }
