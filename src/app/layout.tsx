@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 import "react-contexify/dist/ReactContexify.css";
+import "react-tooltip/dist/react-tooltip.css";
 
 import { Inter } from "next/font/google";
 import { cookies } from "next/headers";

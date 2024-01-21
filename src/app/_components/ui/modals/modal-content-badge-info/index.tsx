@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { type Badge } from "~/app/_components/badge";
-import { badgeInfo } from "~/app/_components/ui/modals/modal-content-badge-info/gym-metadata";
+import {
+  badgeInfo,
+  badgeInfoGymSize,
+} from "~/app/_components/ui/modals/modal-content-badge-info/gym-metadata";
 
 type ModalContentBadgeInfoProps = Badge;
 
@@ -8,8 +11,6 @@ export function ModalContentBadgeInfo(props: ModalContentBadgeInfoProps) {
   const info = badgeInfo[props.version][props.number];
   const gymLeaderSize = 80;
   const gymSizeScale = 40;
-  const gymSizeW = 240 + gymSizeScale;
-  const gymSizeH = 160 + gymSizeScale;
 
   if (!info?.leaderName) {
     return null;
@@ -67,8 +68,8 @@ export function ModalContentBadgeInfo(props: ModalContentBadgeInfoProps) {
       <Image
         alt={`Gym picture from gym #${props.number} on pokemon ${props.version}`}
         src={info?.iconPathGym ?? ""}
-        width={gymSizeW}
-        height={gymSizeH}
+        width={badgeInfoGymSize.w + gymSizeScale}
+        height={badgeInfoGymSize.h + gymSizeScale}
       />
     </div>
   );

@@ -8,6 +8,11 @@ import { api } from "~/trpc/react";
 import { type PokemonVersion } from "~/types";
 import { getTrainer } from "~/utils/get-trainer";
 import { CONTEXT_MENU_ID_BADGE } from "./ui/context-menu/badge";
+import { Tooltip } from "react-tooltip";
+import {
+  badgeInfo,
+  badgeInfoGymSize,
+} from "~/app/_components/ui/modals/modal-content-badge-info/gym-metadata";
 
 export type Badge = {
   number: number;
@@ -24,13 +29,16 @@ export function Badge(props: BadgeProps) {
   const { app } = useApp();
   const { setBadge, trainers } = useTrainer();
   const { show } = useContextMenu({ id: CONTEXT_MENU_ID_BADGE });
+  const [active, setActive] = useState(props.active ?? false);
+
+  const tooltipId = `tooltip-${props.version}-${props.number}`;
+  const badgeImageAlt = `GYM Badge #${props.number} from Pokemon ${props.version}`;
+  const info = badgeInfo[props.version][props.number];
 
   const trainer = getTrainer({
     trainers,
     sessionPath: app.sessionId,
   });
-
-  const [active, setActive] = useState(props.active ?? false);
 
   const updateBadge = api.trainer.updateBadges.useMutation({});
 
@@ -79,27 +87,45 @@ export function Badge(props: BadgeProps) {
   };
 
   return (
-    <button
-      onClick={click}
-      onContextMenu={displayMenu}
-      className={clsx(
-        "flex size-8 grayscale transition-all hover:cursor-context-menu",
-        props.size ? props.size : "",
-        {
-          "filter-none": props.disabled ? true : active,
-        },
-      )}
-      disabled={props.disabled}
-    >
-      <Image
-        className={clsx("size-full", {
-          "drop-shadow-[0px_0px_4px_white]": active && !props.disabled,
-        })}
-        src={`/badges/${props.version}/${props.number}.svg`}
-        alt={`GYM Badge #${props.number} from Pokemon ${props.version}`}
-        width={16}
-        height={16}
-      />
-    </button>
+    <>
+      <button
+        id={tooltipId}
+        onClick={click}
+        onContextMenu={displayMenu}
+        className={clsx(
+          "flex size-8 grayscale transition-all hover:cursor-context-menu",
+          props.size ? props.size : "",
+          {
+            "filter-none": props.disabled ? true : active,
+          },
+        )}
+        disabled={props.disabled}
+      >
+        <Image
+          className={clsx("size-full", {
+            "drop-shadow-[0px_0px_4px_white]": active && !props.disabled,
+          })}
+          src={`/badges/${props.version}/${props.number}.svg`}
+          alt={badgeImageAlt}
+          width={16}
+          height={16}
+        />
+      </button>
+
+      <Tooltip
+        className="z-10 grid gap-2"
+        anchorSelect={`#${tooltipId}`}
+        place="top"
+      >
+        <p>{info?.reward.split(",")[0]}</p>
+
+        <Image
+          alt={badgeImageAlt}
+          src={info?.iconPathGym ?? ""}
+          width={badgeInfoGymSize.w}
+          height={badgeInfoGymSize.h}
+        />
+      </Tooltip>
+    </>
   );
 }

@@ -23,18 +23,16 @@ export function BadgesRow(props: BadgesRowProps) {
         props.className,
       )}
     >
-      {props.badges.sort().map((badgeOrder, i) => {
-        return (
-          <Badge
-            size={clsx("size-[50px]", props.badgesSize)}
-            disabled={props.disabled}
-            key={i}
-            number={badgeOrder}
-            version={props.version}
-            active={props.highlightBadges?.includes(badgeOrder)}
-          />
-        );
-      })}
+      {props.badges.sort().map((badgeOrder, i) => (
+        <Badge
+          size={clsx("size-[50px]", props.badgesSize)}
+          disabled={props.disabled}
+          key={i}
+          number={badgeOrder}
+          version={props.version}
+          active={props.highlightBadges?.includes(badgeOrder)}
+        />
+      ))}
     </div>
   );
 }

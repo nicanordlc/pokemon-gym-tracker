@@ -267,3 +267,8 @@ export const badgeInfo: Record<PokemonVersion, PokemonVersionMetadata> = {
   crystal,
   emerald,
 };
+
+export const badgeInfoGymSize = {
+  w: 240,
+  h: 160,
+};
