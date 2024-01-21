@@ -1,7 +1,7 @@
 import { Item, type ItemParams, Menu, RightSlot } from "react-contexify";
 import { type Badge } from "~/app/_components/badge";
 import { ModalContentBadgeInfo } from "~/app/_components/ui/modals/modal-content-badge-info";
-import { useModalContext } from "~/app/_context/modal";
+import { useModalContext } from "~/app/_hooks/modal";
 
 export const CONTEXT_MENU_ID_BADGE = "context-menu-badge";
 

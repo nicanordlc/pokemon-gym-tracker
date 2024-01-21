@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import ReactModal from "react-modal";
-import { useModalContext } from "~/app/_context/modal";
+import { useModalContext } from "~/app/_hooks/modal";
 
 export function ModalBase() {
   const { setModalContext, modalContext } = useModalContext();
