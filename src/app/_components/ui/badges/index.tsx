@@ -67,6 +67,7 @@ export function Badges(props: BadgesProps) {
   return (
     <div
       className={clsx(
+        "hover:cursor-default",
         "flex flex-col gap-4 rounded-xl bg-white/10 p-4 ",
         props.className,
       )}

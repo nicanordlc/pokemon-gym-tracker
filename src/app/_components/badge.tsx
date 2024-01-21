@@ -112,11 +112,7 @@ export function Badge(props: BadgeProps) {
         />
       </button>
 
-      <Tooltip
-        className="z-10 grid gap-2"
-        anchorSelect={`#${tooltipId}`}
-        place="top"
-      >
+      <Tooltip className="z-10 grid gap-2" anchorSelect={`#${tooltipId}`}>
         <p>{info?.reward.split(",")[0]}</p>
 
         <Image

@@ -56,9 +56,7 @@ export function TrainersBadges({
             {...badgesProps}
             className={clsx(
               badgesProps.className,
-              isLocalLeader
-                ? "hover:cursor-context-menu"
-                : "hover:cursor-default",
+              isLocalLeader && "hover:!cursor-context-menu",
             )}
           />
         );

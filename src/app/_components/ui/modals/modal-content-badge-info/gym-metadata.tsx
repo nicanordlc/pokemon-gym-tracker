@@ -173,8 +173,8 @@ const crystal: PokemonVersionMetadata = {
     location: "Blackthorn City",
     leaderName: "Clair",
     specialty: "Dragon-type",
-    reward: "",
-    unlocks: "Rising Badge, TM24 (Dragonbreath)",
+    reward: "Rising Badge, TM24 (Dragonbreath)",
+    unlocks: "Whirlpool",
     level: "37, 40",
   },
 };
