@@ -9,10 +9,8 @@ import { type PokemonVersion } from "~/types";
 import { getTrainer } from "~/utils/get-trainer";
 import { CONTEXT_MENU_ID_BADGE } from "./ui/context-menu/badge";
 import { Tooltip } from "react-tooltip";
-import {
-  badgeInfo,
-  badgeInfoGymSize,
-} from "~/app/_components/ui/modals/modal-content-badge-info/gym-metadata";
+import { getBadgeMetadata } from "~/utils/get-badge-metadata";
+import { badgeInfoGymSize } from "~/utils/badge-metadata";
 
 export type Badge = {
   number: number;
@@ -33,7 +31,10 @@ export function Badge(props: BadgeProps) {
 
   const tooltipId = `tooltip-${props.version}-${props.number}`;
   const badgeImageAlt = `GYM Badge #${props.number} from Pokemon ${props.version}`;
-  const info = badgeInfo[props.version][props.number];
+  const info = getBadgeMetadata({
+    version: props.version,
+    number: props.number,
+  });
 
   const trainer = getTrainer({
     trainers,

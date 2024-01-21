@@ -1,19 +1,6 @@
-import { type PokemonVersion } from "~/types";
+import { type PokemonVersionMetadata } from "~/types";
 
-type BadgeMetadata = {
-  iconPathLeader: string;
-  iconPathGym: string;
-  leaderName: string;
-  location: string;
-  specialty: string;
-  reward: string;
-  unlocks: string;
-  level: string;
-};
-
-type PokemonVersionMetadata = Record<number, BadgeMetadata>;
-
-const red: PokemonVersionMetadata = {
+export const red: PokemonVersionMetadata = {
   1: {
     iconPathLeader: "/badges/red/1-leader.png",
     iconPathGym: "/badges/red/1-gym.png",
@@ -96,7 +83,7 @@ const red: PokemonVersionMetadata = {
   },
 };
 
-const crystal: PokemonVersionMetadata = {
+export const crystal: PokemonVersionMetadata = {
   1: {
     iconPathLeader: "/badges/crystal/1-leader.png",
     iconPathGym: "/badges/crystal/1-gym.png",
@@ -179,7 +166,7 @@ const crystal: PokemonVersionMetadata = {
   },
 };
 
-const emerald: PokemonVersionMetadata = {
+export const emerald: PokemonVersionMetadata = {
   1: {
     iconPathLeader: "/badges/emerald/1-leader.png",
     iconPathGym: "/badges/emerald/1-gym.png",
@@ -260,12 +247,6 @@ const emerald: PokemonVersionMetadata = {
     unlocks: "Waterfall",
     level: "41, 46",
   },
-};
-
-export const badgeInfo: Record<PokemonVersion, PokemonVersionMetadata> = {
-  red,
-  crystal,
-  emerald,
 };
 
 export const badgeInfoGymSize = {

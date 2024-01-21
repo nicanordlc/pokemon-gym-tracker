@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { type Badge } from "~/app/_components/badge";
-import {
-  badgeInfo,
-  badgeInfoGymSize,
-} from "~/app/_components/ui/modals/modal-content-badge-info/gym-metadata";
+import { badgeInfoGymSize } from "~/utils/badge-metadata";
+import { getBadgeMetadata } from "~/utils/get-badge-metadata";
 
 type ModalContentBadgeInfoProps = Badge;
 
 export function ModalContentBadgeInfo(props: ModalContentBadgeInfoProps) {
-  const info = badgeInfo[props.version][props.number];
+  const info = getBadgeMetadata({
+    version: props.version,
+    number: props.number,
+  });
   const gymLeaderSize = 80;
   const gymSizeScale = 40;
 

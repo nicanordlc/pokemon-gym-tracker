@@ -21,3 +21,16 @@ export const trainerUpdateBadgesSchema = z.object({
 })
 
 export type TrainerUpdateBadges = z.infer<typeof trainerUpdateBadgesSchema>
+
+type BadgeMetadata = {
+  iconPathLeader: string;
+  iconPathGym: string;
+  leaderName: string;
+  location: string;
+  specialty: string;
+  reward: string;
+  unlocks: string;
+  level: string;
+};
+
+export type PokemonVersionMetadata = Record<number, BadgeMetadata>;
