@@ -12,13 +12,15 @@ export function ModalBase() {
   return (
     <ReactModal
       ariaHideApp={false}
-      className={clsx("absolute inset-3 bg-gray-800 p-5")}
+      className={clsx(
+        "absolute inset-3 flex items-center justify-center overflow-hidden bg-gray-800 p-5 sm:inset-9 md:inset-12 lg:inset-20 ",
+      )}
       onRequestClose={handleClose}
       isOpen={modalContext.active}
     >
       {modalContext.content}
 
-      <button className="absolute right-2 top-2" onClick={handleClose}>
+      <button className="absolute right-3 top-2" onClick={handleClose}>
         ❌
       </button>
     </ReactModal>
