@@ -31,37 +31,37 @@ export function ModalContentBadgeInfo(props: ModalContentBadgeInfoProps) {
         <li>
           <span>
             <b>Gym Leader</b>:
-          </span>{" "}
-          {info?.leaderName}
+          </span>
+          {info?.leaderName} #{props.number}
         </li>
         <li>
           <span>
             <b>Location</b>:
-          </span>{" "}
+          </span>
           {info?.location}
         </li>
         <li>
           <span>
             <b>Location</b>:
-          </span>{" "}
+          </span>
           {info?.specialty}
         </li>
         <li>
           <span>
             <b>Reward</b>:
-          </span>{" "}
+          </span>
           {info?.reward}
         </li>
         <li>
           <span>
             <b>Unlocks</b>:
-          </span>{" "}
+          </span>
           {info?.unlocks}
         </li>
         <li>
           <span>
             <b>Level</b>:
-          </span>{" "}
+          </span>
           {info?.level}
         </li>
       </ul>

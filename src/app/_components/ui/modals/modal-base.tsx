@@ -11,10 +11,8 @@ export function ModalBase() {
 
   return (
     <ReactModal
+      className="absolute inset-3 overflow-auto bg-gray-800 p-5 sm:inset-9 md:inset-12 lg:inset-20 "
       ariaHideApp={false}
-      className={clsx(
-        "absolute inset-3 flex items-center justify-center overflow-hidden bg-gray-800 p-5 sm:inset-9 md:inset-12 lg:inset-20 ",
-      )}
       onRequestClose={handleClose}
       isOpen={modalContext.active}
     >

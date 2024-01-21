@@ -28,7 +28,7 @@ export const red: PokemonVersionMetadata = {
     leaderName: "Lt. Surge",
     specialty: "Electric-type",
     reward: "Thunder Badge, TM34 (Shock Wave)",
-    unlocks: "Cut",
+    unlocks: "Fly",
     level: "18, 24",
   },
   4: {
@@ -48,8 +48,8 @@ export const red: PokemonVersionMetadata = {
     leaderName: "Koga",
     specialty: "Poison-type",
     reward: "Soul Badge, TM06 (Toxic)",
-    unlocks: "",
-    level: "",
+    unlocks: "Surf",
+    level: "37, 43",
   },
   6: {
     iconPathLeader: "/badges/red/6-leader.png",
@@ -78,7 +78,7 @@ export const red: PokemonVersionMetadata = {
     leaderName: "Giovanni",
     specialty: "Ground-type",
     reward: "Earth Badge, TM26 (Earthquake)",
-    unlocks: "Yes",
+    unlocks: "Indigo Plateau (Location)",
     level: "42, 50",
   },
 };
