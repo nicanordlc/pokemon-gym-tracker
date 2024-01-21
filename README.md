@@ -1,28 +1,50 @@
-# Create T3 App
+# pokemon-gym-tracker
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+> ℹ️ [Visit site](https://pokemon-gym-tracker.nikasol.xyz/)
 
-## What's next? How do I make an app with this?
+![Home Page](imgs/home.png)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+This project is to track the badges on a randomize game of 3 pokemon games, all at the same time which are `Pokemon Fire Red`, `Crystal Dust` and `Emerald`.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+> ℹ️ You can find how to play it here: [https://kittypboxx.github.io/GBAXG/](https://kittypboxx.github.io/GBAXG/)
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Why ?
 
-## Learn More
+You can play with friends and timebox your play session and as you win your gym badges mark them on the page (manually).
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+The reason for this is because the game does not track accurately all the badges across all 3 games.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Features
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Hover
 
-## How do I deploy this?
+Some elements on the site provide information when you hover on them.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+#### Badges shows you how the gym looks and name of the badge
+
+![Hover](imgs/hover.png)
+
+### Modal Info
+
+#### Some elements have a context menu that provides extra information when you right click on them
+
+![Badge Context Menu](imgs/badge-context-menu.png)
+![Modal Info](imgs/badge-modal-info.png)
+
+### Sessions
+
+Here you can provide the link for your session to anyone to join. This will be updated on real-time.
+
+> ℹ️ Session with two trainers
+
+![Session](imgs/session.png)
+
+#### Session leader have special interaction with other trainers
+
+> ℹ️ Session leader can delete other trainers
+
+![Sessino Leader Delete](imgs/session-leader-delete.png)
+
+## Support
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/cabaalexander)
