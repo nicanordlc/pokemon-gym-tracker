@@ -114,13 +114,22 @@ export function Badge(props: BadgeProps) {
       </button>
 
       <Tooltip
-        className="z-10 grid gap-2"
+        className="z-10 grid grid-cols-4 gap-1"
         opacity={1}
         anchorSelect={`#${tooltipId}`}
+        style={{ borderRadius: "5%" }}
       >
-        <p>{info?.reward.split(",")[0]}</p>
+        <p>Badge:</p>
+        <p className="col-span-3">{info?.reward.split(",")[0]}</p>
+
+        <p>Unlocks:</p>
+        <p className="col-span-3">{info?.unlocks}</p>
+
+        <p>Leader:</p>
+        <p className="col-span-3">{info?.leaderName}</p>
 
         <Image
+          className="col-span-full justify-self-center"
           alt={badgeImageAlt}
           src={info?.iconPathGym ?? ""}
           width={badgeInfoGymSize.w}

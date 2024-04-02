@@ -150,8 +150,8 @@ export const crystal: PokemonVersionMetadata = {
     location: "Mahogany Town",
     leaderName: "Pryce",
     specialty: "Ice-type",
-    reward: "Glacier Badge, TM16 (Icy Wind)",
-    unlocks: "Waterfall",
+    reward: "Glacier Badge, TM16 (Icy Wind), Waterfall",
+    unlocks: "Whirlpool",
     level: "27, 31",
   },
   8: {
@@ -161,7 +161,7 @@ export const crystal: PokemonVersionMetadata = {
     leaderName: "Clair",
     specialty: "Dragon-type",
     reward: "Rising Badge, TM24 (Dragonbreath)",
-    unlocks: "Whirlpool",
+    unlocks: "Use pokemon of any level",
     level: "37, 40",
   },
 };
