@@ -45,6 +45,3 @@ Here you can provide the link for your session to anyone to join. This will be u
 
 ![Sessino Leader Delete](imgs/session-leader-delete.png)
 
-## Support
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/cabaalexander)
