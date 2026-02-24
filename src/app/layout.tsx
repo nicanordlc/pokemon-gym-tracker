@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script defer src="https://analytics.nicanordlc.dev/script.js" data-website-id="4481f54c-4e39-4931-ba15-eed58a2cb1e3"></script>
+        <script defer src="https://analytics.nicanordlc.xyz/script.js" data-website-id="83754d0b-f728-4214-b15b-eb9fee394890"></script>
       </head>
       <body
         className={`font-sans ${inter.variable} min-h-screen bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black text-white [&>main]:p-gutter [&>main]:sm:px-gutter-sm `}
