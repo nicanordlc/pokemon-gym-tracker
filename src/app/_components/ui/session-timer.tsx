@@ -4,8 +4,16 @@ import { useEffect, useState } from "react";
 import { Rnd } from "react-rnd";
 import clsx from "clsx";
 import { FaPlay, FaPause, FaStop, FaUndo } from "react-icons/fa";
+import { api } from "~/trpc/react";
 
-export function SessionTimer() {
+export function SessionTimer({ sessionPath }: { sessionPath: string }) {
+  const getSession = api.session.get.useQuery(
+    { sessionId: sessionPath },
+    { refetchInterval: 1000 },
+  );
+
+  const updateTimer = api.session.updateTimer.useMutation();
+
   const [initialSeconds, setInitialSeconds] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -15,6 +23,42 @@ export function SessionTimer() {
   const [editHours, setEditHours] = useState(0);
   const [editMinutes, setEditMinutes] = useState(0);
   const [editSeconds, setEditSeconds] = useState(0);
+
+  // Sync DB state to local state
+  useEffect(() => {
+    if (!getSession.data) return;
+
+    const { timerState, timerStartTime, timerDuration } = getSession.data;
+    
+    setInitialSeconds(timerDuration);
+    
+    if (timerState === "PLAYING" && timerStartTime) {
+      setIsRunning(true);
+      setIsEditing(false);
+      
+      const elapsedMilliseconds = Date.now() - timerStartTime.getTime();
+      const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+      
+      if (timerDuration > 0) {
+        // Countdown
+        const remaining = Math.max(0, timerDuration - elapsedSeconds);
+        setSeconds(remaining);
+        if (remaining === 0 && isRunning) {
+          setIsRunning(false);
+        }
+      } else {
+        // Stopwatch
+        setSeconds(elapsedSeconds);
+      }
+    } else {
+      setIsRunning(false);
+      
+      // Only set seconds if DB is paused and we're not currently editing
+      if (!isEditing || timerDuration > 0) {
+          setSeconds(timerDuration);
+      }
+    }
+  }, [getSession.data]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -41,21 +85,47 @@ export function SessionTimer() {
   }, [isRunning, initialSeconds]);
 
   const toggleTimer = () => {
+    // If starting from completely stopped and zero, it's a stopwatch
+    let currentInitial = initialSeconds;
     if (!isRunning && seconds === 0 && initialSeconds === 0) {
-      // Starting from 0 as stopwatch
       setSeconds(0);
     }
-    setIsRunning(!isRunning);
+    
+    const newState = !isRunning;
+    
+    updateTimer.mutate({
+      sessionId: sessionPath,
+      timerState: newState ? "PLAYING" : "STOPPED",
+      timerStartTime: newState ? new Date() : null,
+      timerDuration: newState ? currentInitial : seconds,
+    });
+
+    setIsRunning(newState);
     setIsEditing(false);
   };
 
   const resetTimer = () => {
+    updateTimer.mutate({
+      sessionId: sessionPath,
+      timerState: "STOPPED",
+      timerStartTime: null,
+      timerDuration: initialSeconds,
+    });
+    
     setIsRunning(false);
     setSeconds(initialSeconds);
   };
 
   const applyEdit = () => {
     const total = editHours * 3600 + editMinutes * 60 + editSeconds;
+    
+    updateTimer.mutate({
+      sessionId: sessionPath,
+      timerState: "STOPPED",
+      timerStartTime: null,
+      timerDuration: total,
+    });
+
     setInitialSeconds(total);
     setSeconds(total);
     setIsEditing(false);
