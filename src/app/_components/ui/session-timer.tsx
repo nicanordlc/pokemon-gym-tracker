@@ -18,6 +18,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const hasLoadedRef = useRef(false);
+  const isStartingFromEnterRef = useRef(false);
 
   // Sync DB state to local state
   useEffect(() => {
@@ -124,7 +125,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   };
 
   const handleBlur = () => {
-    if (isRunning || !isLeader) return;
+    if (isRunning || !isLeader || isStartingFromEnterRef.current) return;
     // Auto-save the edits so other viewers can see the configured time
     updateTimer.mutate({
       sessionId: sessionPath,
@@ -132,6 +133,18 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
       timerStartTime: null,
       timerDuration: seconds,
     });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !isRunning && isLeader) {
+      e.preventDefault();
+      isStartingFromEnterRef.current = true;
+      e.currentTarget.blur();
+      toggleTimer();
+      setTimeout(() => {
+        isStartingFromEnterRef.current = false;
+      }, 100);
+    }
   };
 
   const h = Math.floor(seconds / 3600);
@@ -172,6 +185,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
                 handleUpdateSeconds(val * 3600 + m * 60 + s);
               }}
               onBlur={handleBlur}
+              onKeyDown={handleKeyDown}
               className={clsx(
                 "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
                 canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
@@ -190,6 +204,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
                 handleUpdateSeconds(h * 3600 + val * 60 + s);
               }}
               onBlur={handleBlur}
+              onKeyDown={handleKeyDown}
               className={clsx(
                 "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
                 canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
@@ -208,6 +223,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
                 handleUpdateSeconds(h * 3600 + m * 60 + val);
               }}
               onBlur={handleBlur}
+              onKeyDown={handleKeyDown}
               className={clsx(
                 "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
                 canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
