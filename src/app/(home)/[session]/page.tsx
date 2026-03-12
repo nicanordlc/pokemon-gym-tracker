@@ -48,7 +48,7 @@ export default function Session() {
 
   return (
     <main className="container mx-auto grid grid-cols-1 justify-items-center gap-y-4 ">
-      <SessionTimer sessionPath={sessionId} />
+      <SessionTimer sessionPath={sessionId} isLeader={localTrainer?.sessionLeader ?? false} />
       <ModalProvider>
         <Title className="text-center sm:col-span-full " />
 

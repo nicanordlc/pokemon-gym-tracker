@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { FaPlay, FaPause, FaStop, FaUndo } from "react-icons/fa";
 import { api } from "~/trpc/react";
 
-export function SessionTimer({ sessionPath }: { sessionPath: string }) {
+export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: string, isLeader?: boolean }) {
   const getSession = api.session.get.useQuery(
     { sessionId: sessionPath },
     { refetchInterval: 1000 },
@@ -164,7 +164,7 @@ export function SessionTimer({ sessionPath }: { sessionPath: string }) {
         </div>
 
         <div className="flex flex-1 flex-col items-center justify-center p-2">
-          {isEditing && !isRunning ? (
+          {isLeader && isEditing && !isRunning ? (
             <div className="flex items-center gap-1 text-zinc-100">
               <input
                 type="number"
@@ -194,9 +194,12 @@ export function SessionTimer({ sessionPath }: { sessionPath: string }) {
             </div>
           ) : (
             <div
-              className="cursor-pointer text-4xl font-bold tracking-wider text-zinc-100 transition-colors hover:text-blue-400"
+              className={clsx(
+                "text-4xl font-bold tracking-wider text-zinc-100 transition-colors",
+                isLeader && "cursor-pointer hover:text-blue-400"
+              )}
               onClick={() => {
-                if (!isRunning) setIsEditing(true);
+                if (isLeader && !isRunning) setIsEditing(true);
               }}
             >
               {formatTime(seconds)}
@@ -205,36 +208,38 @@ export function SessionTimer({ sessionPath }: { sessionPath: string }) {
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-4 border-t border-zinc-800 bg-zinc-950/50 p-2">
-          {isEditing && !isRunning ? (
-            <button
-              onClick={applyEdit}
-              className="rounded bg-blue-600 px-4 py-1 text-xs font-semibold text-white transition-colors hover:bg-blue-500"
-            >
-              Set
-            </button>
-          ) : (
-            <>
+        {isLeader && (
+          <div className="flex items-center justify-center gap-4 border-t border-zinc-800 bg-zinc-950/50 p-2">
+            {isEditing && !isRunning ? (
               <button
-                onClick={toggleTimer}
-                className={clsx(
-                  "flex size-8 items-center justify-center rounded-full transition-colors",
-                  isRunning
-                    ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
-                    : "bg-green-500/20 text-green-400 hover:bg-green-500/30",
-                )}
+                onClick={applyEdit}
+                className="rounded bg-blue-600 px-4 py-1 text-xs font-semibold text-white transition-colors hover:bg-blue-500"
               >
-                {isRunning ? <FaPause size={12} /> : <FaPlay size={12} />}
+                Set
               </button>
-              <button
-                onClick={resetTimer}
-                className="flex size-8 items-center justify-center rounded-full bg-zinc-700/50 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-zinc-200"
-              >
-                <FaUndo size={12} />
-              </button>
-            </>
-          )}
-        </div>
+            ) : (
+              <>
+                <button
+                  onClick={toggleTimer}
+                  className={clsx(
+                    "flex size-8 items-center justify-center rounded-full transition-colors",
+                    isRunning
+                      ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
+                      : "bg-green-500/20 text-green-400 hover:bg-green-500/30",
+                  )}
+                >
+                  {isRunning ? <FaPause size={12} /> : <FaPlay size={12} />}
+                </button>
+                <button
+                  onClick={resetTimer}
+                  className="flex size-8 items-center justify-center rounded-full bg-zinc-700/50 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-zinc-200"
+                >
+                  <FaUndo size={12} />
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </Rnd>
   );
