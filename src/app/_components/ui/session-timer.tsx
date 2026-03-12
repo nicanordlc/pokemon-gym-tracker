@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Rnd } from "react-rnd";
 import clsx from "clsx";
 import { FaPlay, FaPause, FaStop, FaUndo } from "react-icons/fa";
@@ -17,12 +17,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   const [initialSeconds, setInitialSeconds] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  const [isEditing, setIsEditing] = useState(true);
-
-  // Time components for editing
-  const [editHours, setEditHours] = useState(0);
-  const [editMinutes, setEditMinutes] = useState(0);
-  const [editSeconds, setEditSeconds] = useState(0);
+  const hasLoadedRef = useRef(false);
 
   // Sync DB state to local state
   useEffect(() => {
@@ -30,35 +25,33 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
 
     const { timerState, timerStartTime, timerDuration } = getSession.data;
     
-    setInitialSeconds(timerDuration);
-    
     if (timerState === "PLAYING" && timerStartTime) {
       setIsRunning(true);
-      setIsEditing(false);
       
       const elapsedMilliseconds = Date.now() - timerStartTime.getTime();
       const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
       
       if (timerDuration > 0) {
         // Countdown
-        const remaining = Math.max(0, timerDuration - elapsedSeconds);
-        setSeconds(remaining);
-        if (remaining === 0 && isRunning) {
-          setIsRunning(false);
-        }
+        setSeconds(Math.max(0, timerDuration - elapsedSeconds));
       } else {
         // Stopwatch
         setSeconds(elapsedSeconds);
       }
+      setInitialSeconds(timerDuration);
+      hasLoadedRef.current = true;
     } else {
       setIsRunning(false);
       
-      // Only set seconds if DB is paused and we're not currently editing
-      if (!isEditing || timerDuration > 0) {
-          setSeconds(timerDuration);
+      // Update local time from DB only if we are a follower or if it's the first load.
+      // The leader's local input state stays the source of truth while stopped.
+      if (!isLeader || !hasLoadedRef.current) {
+         setSeconds(timerDuration);
+         setInitialSeconds(timerDuration);
+         hasLoadedRef.current = true;
       }
     }
-  }, [getSession.data]);
+  }, [getSession.data, isLeader]);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -85,10 +78,18 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   }, [isRunning, initialSeconds]);
 
   const toggleTimer = () => {
-    // If starting from completely stopped and zero, it's a stopwatch
     let currentInitial = initialSeconds;
+    let currentSeconds = seconds;
+    
+    // If starting from completely stopped and zero, it's a stopwatch
     if (!isRunning && seconds === 0 && initialSeconds === 0) {
+      currentSeconds = 0;
       setSeconds(0);
+    }
+    
+    if (!isRunning) {
+      currentInitial = seconds; // Lock in whatever the user typed
+      setInitialSeconds(seconds);
     }
     
     const newState = !isRunning;
@@ -97,11 +98,10 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
       sessionId: sessionPath,
       timerState: newState ? "PLAYING" : "STOPPED",
       timerStartTime: newState ? new Date() : null,
-      timerDuration: newState ? currentInitial : seconds,
+      timerDuration: newState ? currentInitial : currentSeconds,
     });
 
     setIsRunning(newState);
-    setIsEditing(false);
   };
 
   const resetTimer = () => {
@@ -115,39 +115,30 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
     setIsRunning(false);
     setSeconds(0);
     setInitialSeconds(0);
-    setEditHours(0);
-    setEditMinutes(0);
-    setEditSeconds(0);
-    setIsEditing(true);
   };
 
-  const applyEdit = () => {
-    const total = editHours * 3600 + editMinutes * 60 + editSeconds;
-    
+  const handleUpdateSeconds = (newSeconds: number) => {
+    if (isRunning || !isLeader) return;
+    setSeconds(newSeconds);
+    setInitialSeconds(newSeconds);
+  };
+
+  const handleBlur = () => {
+    if (isRunning || !isLeader) return;
+    // Auto-save the edits so other viewers can see the configured time
     updateTimer.mutate({
       sessionId: sessionPath,
       timerState: "STOPPED",
       timerStartTime: null,
-      timerDuration: total,
+      timerDuration: seconds,
     });
-
-    setInitialSeconds(total);
-    setSeconds(total);
-    setIsEditing(false);
   };
 
-  const formatTime = (totalSeconds: number) => {
-    const h = Math.floor(totalSeconds / 3600);
-    const m = Math.floor((totalSeconds % 3600) / 60);
-    const s = totalSeconds % 60;
-
-    if (h > 0) {
-      return `${h.toString().padStart(2, "0")}:${m
-        .toString()
-        .padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-    }
-    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-  };
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  
+  const canEdit = isLeader && !isRunning;
 
   return (
     <Rnd
@@ -169,80 +160,85 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
         </div>
 
         <div className="flex flex-1 flex-col items-center justify-center p-2">
-          {isLeader && isEditing && !isRunning ? (
-            <div className="flex items-center gap-1 text-zinc-100">
+            <div className="flex items-center text-4xl font-bold tracking-wider text-zinc-100">
               <input
-                type="number"
-                min="0"
-                value={editHours}
-                onChange={(e) => setEditHours(parseInt(e.target.value) || 0)}
-                className="w-10 rounded border border-zinc-700 bg-zinc-800 p-1 text-center text-sm outline-none focus:border-blue-500"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                readOnly={!canEdit}
+                value={h.toString().padStart(2, "0")}
+                onChange={(e) => {
+                  const val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
+                  handleUpdateSeconds(val * 3600 + m * 60 + s);
+                }}
+                onBlur={handleBlur}
+                onFocus={(e) => canEdit && e.target.select()}
+                className={clsx(
+                  "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
+                  canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
+                )}
               />
-              <span>:</span>
+              <span className="opacity-50 pb-1">:</span>
               <input
-                type="number"
-                min="0"
-                max="59"
-                value={editMinutes}
-                onChange={(e) => setEditMinutes(parseInt(e.target.value) || 0)}
-                className="w-10 rounded border border-zinc-700 bg-zinc-800 p-1 text-center text-sm outline-none focus:border-blue-500"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                readOnly={!canEdit}
+                value={m.toString().padStart(2, "0")}
+                onChange={(e) => {
+                  let val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
+                  if (val > 59) val = 59;
+                  handleUpdateSeconds(h * 3600 + val * 60 + s);
+                }}
+                onBlur={handleBlur}
+                onFocus={(e) => canEdit && e.target.select()}
+                className={clsx(
+                  "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
+                  canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
+                )}
               />
-              <span>:</span>
+              <span className="opacity-50 pb-1">:</span>
               <input
-                type="number"
-                min="0"
-                max="59"
-                value={editSeconds}
-                onChange={(e) => setEditSeconds(parseInt(e.target.value) || 0)}
-                className="w-10 rounded border border-zinc-700 bg-zinc-800 p-1 text-center text-sm outline-none focus:border-blue-500"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                readOnly={!canEdit}
+                value={s.toString().padStart(2, "0")}
+                onChange={(e) => {
+                  let val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
+                  if (val > 59) val = 59;
+                  handleUpdateSeconds(h * 3600 + m * 60 + val);
+                }}
+                onBlur={handleBlur}
+                onFocus={(e) => canEdit && e.target.select()}
+                className={clsx(
+                  "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
+                  canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
+                )}
               />
             </div>
-          ) : (
-            <div
-              className={clsx(
-                "text-4xl font-bold tracking-wider text-zinc-100 transition-colors",
-                isLeader && "cursor-pointer hover:text-blue-400"
-              )}
-              onClick={() => {
-                if (isLeader && !isRunning) setIsEditing(true);
-              }}
-            >
-              {formatTime(seconds)}
-            </div>
-          )}
         </div>
 
         {/* Controls */}
         {isLeader && (
           <div className="flex items-center justify-center gap-4 border-t border-zinc-800 bg-zinc-950/50 p-2">
-            {isEditing && !isRunning ? (
-              <button
-                onClick={applyEdit}
-                className="rounded bg-blue-600 px-4 py-1 text-xs font-semibold text-white transition-colors hover:bg-blue-500"
-              >
-                Set
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={toggleTimer}
-                  className={clsx(
-                    "flex size-8 items-center justify-center rounded-full transition-colors",
-                    isRunning
-                      ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
-                      : "bg-green-500/20 text-green-400 hover:bg-green-500/30",
-                  )}
-                >
-                  {isRunning ? <FaPause size={12} /> : <FaPlay size={12} />}
-                </button>
-                <button
-                  onClick={resetTimer}
-                  className="flex size-8 items-center justify-center rounded-full bg-zinc-700/50 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-zinc-200"
-                >
-                  <FaUndo size={12} />
-                </button>
-              </>
-            )}
+            <button
+              onClick={toggleTimer}
+              className={clsx(
+                "flex size-8 items-center justify-center rounded-full transition-colors",
+                isRunning
+                  ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
+                  : "bg-green-500/20 text-green-400 hover:bg-green-500/30",
+              )}
+            >
+              {isRunning ? <FaPause size={12} /> : <FaPlay size={12} />}
+            </button>
+            <button
+              onClick={resetTimer}
+              className="flex size-8 items-center justify-center rounded-full bg-zinc-700/50 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-zinc-200"
+            >
+              <FaUndo size={12} />
+            </button>
           </div>
         )}
       </div>
