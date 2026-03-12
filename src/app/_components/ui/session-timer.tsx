@@ -109,11 +109,16 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
       sessionId: sessionPath,
       timerState: "STOPPED",
       timerStartTime: null,
-      timerDuration: initialSeconds,
+      timerDuration: 0,
     });
     
     setIsRunning(false);
-    setSeconds(initialSeconds);
+    setSeconds(0);
+    setInitialSeconds(0);
+    setEditHours(0);
+    setEditMinutes(0);
+    setEditSeconds(0);
+    setIsEditing(true);
   };
 
   const applyEdit = () => {
