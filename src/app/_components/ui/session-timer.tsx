@@ -20,6 +20,20 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   const hasLoadedRef = useRef(false);
   const isStartingFromEnterRef = useRef(false);
 
+  useEffect(() => {
+    if (isRunning && initialSeconds > 0 && seconds === 0) {
+      setIsRunning(false);
+      if (isLeader) {
+        updateTimer.mutate({
+          sessionId: sessionPath,
+          timerState: "STOPPED",
+          timerStartTime: null,
+          timerDuration: 0,
+        });
+      }
+    }
+  }, [seconds, isRunning, initialSeconds, isLeader, sessionPath, updateTimer]);
+
   // Sync DB state to local state
   useEffect(() => {
     if (!getSession.data) return;
@@ -62,11 +76,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
         setSeconds((prev) => {
           if (initialSeconds > 0) {
             // Countdown mode
-            if (prev <= 1) {
-              setIsRunning(false);
-              return 0;
-            }
-            return prev - 1;
+            return Math.max(0, prev - 1);
           } else {
             // Stopwatch mode
             return prev + 1;
