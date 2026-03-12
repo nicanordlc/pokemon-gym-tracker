@@ -24,13 +24,13 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
     if (!getSession.data) return;
 
     const { timerState, timerStartTime, timerDuration } = getSession.data;
-    
+
     if (timerState === "PLAYING" && timerStartTime) {
       setIsRunning(true);
-      
+
       const elapsedMilliseconds = Date.now() - timerStartTime.getTime();
       const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
-      
+
       if (timerDuration > 0) {
         // Countdown
         setSeconds(Math.max(0, timerDuration - elapsedSeconds));
@@ -42,13 +42,13 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
       hasLoadedRef.current = true;
     } else {
       setIsRunning(false);
-      
+
       // Update local time from DB only if we are a follower or if it's the first load.
       // The leader's local input state stays the source of truth while stopped.
       if (!isLeader || !hasLoadedRef.current) {
-         setSeconds(timerDuration);
-         setInitialSeconds(timerDuration);
-         hasLoadedRef.current = true;
+        setSeconds(timerDuration);
+        setInitialSeconds(timerDuration);
+        hasLoadedRef.current = true;
       }
     }
   }, [getSession.data, isLeader]);
@@ -80,20 +80,20 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   const toggleTimer = () => {
     let currentInitial = initialSeconds;
     let currentSeconds = seconds;
-    
+
     // If starting from completely stopped and zero, it's a stopwatch
     if (!isRunning && seconds === 0 && initialSeconds === 0) {
       currentSeconds = 0;
       setSeconds(0);
     }
-    
+
     if (!isRunning) {
       currentInitial = seconds; // Lock in whatever the user typed
       setInitialSeconds(seconds);
     }
-    
+
     const newState = !isRunning;
-    
+
     updateTimer.mutate({
       sessionId: sessionPath,
       timerState: newState ? "PLAYING" : "STOPPED",
@@ -111,7 +111,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
       timerStartTime: null,
       timerDuration: 0,
     });
-    
+
     setIsRunning(false);
     setSeconds(0);
     setInitialSeconds(0);
@@ -137,7 +137,7 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = seconds % 60;
-  
+
   const canEdit = isLeader && !isRunning;
 
   return (
@@ -160,63 +160,60 @@ export function SessionTimer({ sessionPath, isLeader = false }: { sessionPath: s
         </div>
 
         <div className="flex flex-1 flex-col items-center justify-center p-2">
-            <div className="flex items-center text-4xl font-bold tracking-wider text-zinc-100">
-              <input
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                readOnly={!canEdit}
-                value={h.toString().padStart(2, "0")}
-                onChange={(e) => {
-                  const val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
-                  handleUpdateSeconds(val * 3600 + m * 60 + s);
-                }}
-                onBlur={handleBlur}
-                onFocus={(e) => canEdit && e.target.select()}
-                className={clsx(
-                  "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
-                  canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
-                )}
-              />
-              <span className="opacity-50 pb-1">:</span>
-              <input
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                readOnly={!canEdit}
-                value={m.toString().padStart(2, "0")}
-                onChange={(e) => {
-                  let val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
-                  if (val > 59) val = 59;
-                  handleUpdateSeconds(h * 3600 + val * 60 + s);
-                }}
-                onBlur={handleBlur}
-                onFocus={(e) => canEdit && e.target.select()}
-                className={clsx(
-                  "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
-                  canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
-                )}
-              />
-              <span className="opacity-50 pb-1">:</span>
-              <input
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                readOnly={!canEdit}
-                value={s.toString().padStart(2, "0")}
-                onChange={(e) => {
-                  let val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
-                  if (val > 59) val = 59;
-                  handleUpdateSeconds(h * 3600 + m * 60 + val);
-                }}
-                onBlur={handleBlur}
-                onFocus={(e) => canEdit && e.target.select()}
-                className={clsx(
-                  "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
-                  canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
-                )}
-              />
-            </div>
+          <div className="flex items-center text-4xl font-bold tracking-wider text-zinc-100">
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              readOnly={!canEdit}
+              value={h.toString().padStart(2, "0")}
+              onChange={(e) => {
+                const val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
+                handleUpdateSeconds(val * 3600 + m * 60 + s);
+              }}
+              onBlur={handleBlur}
+              className={clsx(
+                "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
+                canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
+              )}
+            />
+            <span className="opacity-50 pb-1">:</span>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              readOnly={!canEdit}
+              value={m.toString().padStart(2, "0")}
+              onChange={(e) => {
+                let val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
+                if (val > 59) val = 59;
+                handleUpdateSeconds(h * 3600 + val * 60 + s);
+              }}
+              onBlur={handleBlur}
+              className={clsx(
+                "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
+                canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
+              )}
+            />
+            <span className="opacity-50 pb-1">:</span>
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              readOnly={!canEdit}
+              value={s.toString().padStart(2, "0")}
+              onChange={(e) => {
+                let val = parseInt(e.target.value.replace(/\D/g, "").slice(-2)) || 0;
+                if (val > 59) val = 59;
+                handleUpdateSeconds(h * 3600 + m * 60 + val);
+              }}
+              onBlur={handleBlur}
+              className={clsx(
+                "w-[1.5em] bg-transparent text-center outline-none transition-colors selection:bg-blue-500/30",
+                canEdit ? "focus:text-blue-400 cursor-text" : "cursor-default pointer-events-none"
+              )}
+            />
+          </div>
         </div>
 
         {/* Controls */}
