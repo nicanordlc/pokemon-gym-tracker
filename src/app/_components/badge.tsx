@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { type TriggerEvent, useContextMenu } from "react-contexify";
 import { useApp } from "~/app/_hooks/app";
 import { useTrainer } from "~/app/_hooks/trainer";
@@ -8,7 +8,7 @@ import { api } from "~/trpc/react";
 import { type PokemonVersion } from "~/types";
 import { getTrainer } from "~/utils/get-trainer";
 import { CONTEXT_MENU_ID_BADGE } from "./ui/context-menu/badge";
-import { Tooltip } from "react-tooltip";
+import { Tooltip, type TooltipRefProps } from "react-tooltip";
 import { getBadgeMetadata } from "~/utils/get-badge-metadata";
 import { badgeInfoGymSize } from "~/utils/badge-metadata";
 
@@ -28,6 +28,7 @@ export function Badge(props: BadgeProps) {
   const { setBadge, trainers } = useTrainer();
   const { show } = useContextMenu({ id: CONTEXT_MENU_ID_BADGE });
   const [active, setActive] = useState(props.active ?? false);
+  const tooltipRef = useRef<TooltipRefProps>(null);
 
   const tooltipId = `tooltip-${props.version}-${props.number}`;
   const badgeImageAlt = `GYM Badge #${props.number} from Pokemon ${props.version}`;
@@ -65,6 +66,10 @@ export function Badge(props: BadgeProps) {
 
   const click = () => {
     toggleActive();
+
+    setTimeout(() => {
+      tooltipRef.current?.close();
+    }, 1500);
 
     if (props.disabled) {
       return;
@@ -114,6 +119,7 @@ export function Badge(props: BadgeProps) {
       </button>
 
       <Tooltip
+        ref={tooltipRef}
         className="z-10 grid grid-cols-4 gap-1"
         opacity={1}
         anchorSelect={`#${tooltipId}`}

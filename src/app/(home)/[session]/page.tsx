@@ -16,6 +16,7 @@ import { ContextMenuTrainer } from "~/app/_components/ui/context-menu/trainer";
 import { ContextMenuBadge } from "~/app/_components/ui/context-menu/badge";
 import { ModalBase } from "~/app/_components/ui/modals/modal-base";
 import { ModalProvider } from "~/app/_context/modal";
+import { SessionTimer } from "~/app/_components/ui/session-timer";
 
 export default function Session() {
   const { app } = useApp();
@@ -47,6 +48,7 @@ export default function Session() {
 
   return (
     <main className="container mx-auto grid grid-cols-1 justify-items-center gap-y-4 ">
+      <SessionTimer sessionPath={sessionId} isLeader={localTrainer?.sessionLeader ?? false} />
       <ModalProvider>
         <Title className="text-center sm:col-span-full " />
 
